@@ -10,6 +10,28 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbarinverse">
+      <div class="container">
+
+        <nav class="nav navbar-left">
+          <span>長野ケーキ</span>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to 'マイページ', users_mypage_path %></li>
+              <li><%= link_to '商品一覧', users_items_path %></li>
+              <li><%= link_to 'カート', users_cart_items_path %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to '商品一覧', users_items_path %></li>
+              <li><%= link_to '新規登録', new_user_registration_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
