@@ -1,5 +1,5 @@
 class Oder < ApplicationRecord
   belongs_to :user
 
-  has_many :oreder_items
+  has_many :order_items
 end
