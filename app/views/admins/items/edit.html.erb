@@ -1,0 +1,26 @@
+<h3>商品詳細</h3>
+
+  <%= attachment_image_tag @item, :picture,:fill,300,200,format:'jpg'%>
+
+  <%= form_for(@item,url:admins_item_path(@item)) do |f| %>
+
+
+    <%= f.attachment_field :picture %>
+
+    ここで分割<br>
+
+    商品名 <%= f.text_field :name %><br>
+
+    商品説明<%= f.text_area :description %><br>
+
+  ジャンル
+  <%= f.collection_select :genre_id,Genre.all,:id,:name %><br>
+
+  税抜価格<%= f.text_field :price %>円<br>
+
+  販売ステータス
+  <%= f.select :is_sale_status,[["有効","true"],["無効","false"]] %>
+
+    <p><%= f.submit "変更を保存" %><p>
+  <% end %>
+
