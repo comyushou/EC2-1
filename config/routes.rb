@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
   namespace :users do
   	root 'home#top'
-  	resources :itsms, only: [:index, :show]
+  	resources :items, only: [:index, :show]
   	resources :cart_items, only: [:index, :create, :update]
   	delete 'cart_items/:id/items/:id' => 'users/cart_items#destroy_part'
   	delete 'cart_items/:id' => 'users/cart_items#destroy_cart'
