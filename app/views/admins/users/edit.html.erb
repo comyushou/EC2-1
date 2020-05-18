@@ -1,0 +1,58 @@
+<h3><%= @user.family_name %>
+	<%= @user.first_name %>さんの会員詳細</h3>
+
+<table>
+
+	<tbody>
+		<%= form_for (@user) do |f| %>
+			<tr>
+				<td>顧客ID</td>
+				<td><%= user.user_id %></td>
+			</tr>
+
+			<tr>
+				<td>氏名</td>
+
+				<td><%= f.text_field :family_name %></td>
+				<td><%= f.text_field :first_name %></td>
+			</tr>
+
+			<tr>
+				<td>フリガナ</td>
+				<td><%= f.text_field :kana_family_name %></td>
+				<td><%= f.text_field :kana_first_name %></td>
+			</tr>
+
+			<tr>
+				<td>郵便番号</td>
+				<td><%= f.text_field :postal_code %></td>
+			</tr>
+
+			<tr>
+				<td>住所</td>
+				<td><%= f.text_field :address %></td>
+			</tr>
+
+			<tr>
+				<td>電話番号</td>
+				<td><%= f.text_field :phone_number %></td>
+			</tr>
+
+			<tr>
+				<td>メールアドレス</td>
+				<td><%= f.email_field :email %></td>
+			</tr>
+
+			<tr>
+				<td>会員ステータス</td>
+				<!-- #booleanラジオボタン -->
+				<td><%= f.text_field :is_active %></td>
+
+			</tr>
+		<%= f.submit "変更を保存する" %>
+		<% end %>
+	</tbody>
+
+</table>
+
+

@@ -1,0 +1,52 @@
+<h3><%= @user.family_name %>
+	<%= @user.first_name %>さんの会員詳細</h3>
+
+<table>
+
+	<tbody>
+
+			<tr>
+				<td>顧客ID</td>
+				<td><%= @user.user_id %></td>
+				<td><%= @user.is_active %></td>
+			</tr>
+
+			<tr>
+				<td>氏名</td>
+				<td><%= @user.family_name %>
+					<%= @user.first_name %></td>
+			</tr>
+
+			<tr>
+				<td>フリガナ</td>
+				<td><%= @user.kana_family_name %>
+					<%= @user.kana_first_name %></td>
+			</tr>
+
+			<tr>
+				<td>郵便番号</td>
+				<td><%= @user.postal_code %></td>
+			</tr>
+
+			<tr>
+				<td>住所</td>
+				<td><%= @user.address %></td>
+			</tr>
+
+			<tr>
+				<td>電話番号</td>
+				<td><%= @user.fone_number %></td>
+			</tr>
+
+			<tr>
+				<td>メールアドレス</td>
+				<td><%= @user.email %></td>
+			</tr>
+
+	</tbody>
+
+</table>
+
+<%= link_to "編集する", edit_admins_user_path(@uesr) %>
+
+<%= link_to "注文履歴一覧を見る", admins_orders_path %>
