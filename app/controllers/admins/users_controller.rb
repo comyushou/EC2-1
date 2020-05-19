@@ -15,12 +15,10 @@ class Admins::UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.update(user_params)
-			redirect_to	admins_top_path
-		else
-			render 'edit'
+			redirect_to	admins_user_path
 		end
 	end
-	
+
 	private
 	def user_params
 		params.require(:user).permit(:family_name,:first_name,:kana_family_name,:kana_first_name,:postal_code,:address,:phone_number,)
