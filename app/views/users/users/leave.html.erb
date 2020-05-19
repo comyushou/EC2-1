@@ -1,0 +1,7 @@
+<h2>本当に退会しますか</h2>
+
+<span>退会すると、会員登録情報や</span><br>
+<span>これまでの購入履歴が閲覧できなくなります</span><br>
+<span>退会する場合は、「退会する」をクリックしてください。</span><br>
+<%= link_to '退会しない', users_mypage_path %>
+<%= link_to '退会する', users_hide_path, data: { confirm: "Are you sure?" }, method: :delete %>
