@@ -1,6 +1,7 @@
 <h2>配送先登録/一覧</h2>
 
 <%= form_for @address, url: users_addresses_path do |f| %>
+
 	<table>
 		<tr>
 			<th>郵便番号（ハイフンなし）</th>
@@ -39,9 +40,7 @@
 				<tr>
 					<td><%= address.postal_code %></td>
 	      			<td><%= address.address %></td>
-	      			<td><%= address.name %></td>
-	      			<%= link_to "編集する", edit_users_address_path(addres) %>
-	      		 	<%= link_to "削除する", user_address(addres), method: :delete %>
+	      			<td><%= address.name %><%= link_to "編集する", edit_users_address_path(address) %><%= link_to "削除する", users_address_path(address), method: :delete %></td>
 				</tr>
 			</tbody>
 		<% end %>
