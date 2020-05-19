@@ -1,13 +1,13 @@
 <h3><%= @user.family_name %>
-	<%= @user.first_name %>さんの会員詳細</h3>
+	<%= @user.first_name %>さんの会員情報編集</h3>
 
 <table>
 
 	<tbody>
-		<%= form_for (@user) do |f| %>
+		<%= form_for(@user,url:edit_admins_user_path(@user)) do |f| %>
 			<tr>
 				<td>顧客ID</td>
-				<td><%= user.user_id %></td>
+				<td><%= @user.id %></td>
 			</tr>
 
 			<tr>
@@ -45,14 +45,15 @@
 
 			<tr>
 				<td>会員ステータス</td>
-				<!-- #booleanラジオボタン -->
-				<td><%= f.text_field :is_active %></td>
+
+				<td><label><%= f.radio_button :is_active, "true" %>有効</label></td>
+				<td><lavel><%= f.radio_button :is_active, "false" %>退会済み</lavel></td>
 
 			</tr>
-		<%= f.submit "変更を保存する" %>
-		<% end %>
+
 	</tbody>
 
 </table>
 
-
+		<%= f.submit "変更を保存する" %>
+		<% end %>

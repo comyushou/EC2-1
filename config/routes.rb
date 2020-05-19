@@ -35,7 +35,8 @@ Rails.application.routes.draw do
   	get 'top' => 'top#top'
   	resources :items, only: [:new, :index, :create, :show, :edit, :update]
   	resources :genres, only: [:index, :create, :edit, :update]
-  	resources :users, only: [:index, :show, :edit, :update]
+  	resources :users, only: [:index, :show, :edit]
+    patch 'users/:id/edit' => 'users#update'
   	resources :orders, only: [:index, :show, :update]
   	patch 'order_items/:id' => 'order_items#update'
   end
