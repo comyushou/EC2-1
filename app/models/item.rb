@@ -6,5 +6,4 @@ class Item < ApplicationRecord
 
 	attachment :picture
 
-
 end
