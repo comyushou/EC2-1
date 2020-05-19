@@ -8,6 +8,7 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def index
+		@orders = current_user.orders.reverse
 	end
 
 	def show
