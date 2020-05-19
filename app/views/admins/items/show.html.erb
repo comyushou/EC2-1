@@ -2,25 +2,26 @@
 
   <%= attachment_image_tag @item, :picture,:fill,300,200,format:'jpg'%>
 
-  画面分割<br>
+  <!-- ここで分割 -->
 
   商品名 <%= @item.name %><br>
 
-  商品の説明 <%= @item.description %><br>
+  商品説明 <%= @item.description %><br>
 
-  ジャンル <b><%= @item.genre.name %></b><br>
+  ジャンル <%= @item.genre.name %><br>
 
-  税込価格(税抜価格) <%= "@item.price*10%" %>税込価格いる(<%= @item.price %>)円<br>
+  税込価格(税抜価格) <%= @zeikomi %>(<%= @item.price %>)円<br>
 
 
 
   販売ステータス<% if @item.is_sale_status  == true %>
               販売中
             <% else %>
-              品切れ中
+              売切れ
             <% end %>
 
-  ここで分割<br>
+  <!-- ここで分割 -->
+
   <%= link_to "編集する",edit_admins_item_path(@item.id) %>
 
 
