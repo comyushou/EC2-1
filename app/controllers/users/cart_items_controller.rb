@@ -1,6 +1,7 @@
 class Users::CartItemsController < ApplicationController
 
 	def index
+		
 	end
 
 	def update
@@ -11,9 +12,13 @@ class Users::CartItemsController < ApplicationController
 
 
 	def destroy_part
+		@cart_item.destroy
+		redirect_to cart_items_path
 	end
 
-	def destroy_cart
+	def destroy_cart　#カート内全削除
+		@user.cart_item.destroy_all
+		redirect_to cart_items_path
 	end
 		
 end

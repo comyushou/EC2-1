@@ -1,11 +1,15 @@
 class Users::AddressesController < ApplicationController
+	before_action :authenticate_user! #ログインユーザーのみ
+	before_action :set_user #ログインしてるユーザーを最初に表示
+
 	def index
 		@address = Address.new
 		@addresses = Address.all
 	end
 	def create
+		@address = Address.find_by(user_id: current_user.id)
 		@user = User.find(current_user.id)
-		@address = Addres.new(address_params)
+		@address = Address.new(address_params)
 		@address.user_id = current_user.id
 		if
 			@address.save
@@ -22,14 +26,23 @@ class Users::AddressesController < ApplicationController
 	end
 
 	def update
-		
+		@address = Address.find(params[:id])
+		@address.update(address_params)
+		redirect_to users_addresses_path
 	end
 	def destroy
+		@address = Address.find(params[:id])
+		@address.destroy
+		redirect_to users_addresses_path
 		
 	end
 
 	private
 	def address_params
-		params.require(:address).permit(:postal_code, :address, :name)
+		params.require(:address).permit(:user_id, :postal_code, :address, :name)
+	end
+
+	def set_user
+	  	@user = current_user
 	end
 end
