@@ -13,6 +13,13 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def show
+
+	end
+
+	private
+
+	def order_params
+		params.require(:order).permit(:postage, :is_payment_method, :order_status, :review_name, :postal_code, :address, :billing_amount)
 	end
 
 	def confirm
