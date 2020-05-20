@@ -1,0 +1,25 @@
+<h2>ショッピングカート</h2>
+ <%= button_to "カートを空にする", method: :delete %>
+
+ <table>
+	<thead>
+		<tr>
+			<th>商品名</th>
+			<th>単価(税込)</th>
+			<th>数量</th>
+			<th>小計</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	 <%= @cart_items.each do |cart_item| %>
+	  	<tr>
+	  		<%= link_to item_path(cart_item.item) do %>
+		  		<%= attachment_image_tag(cart_item.item, :image, :fill, 100, 100) %>
+		  		<%= cart_item.item.name %>
+	  		<% end %>
+	  	</tr>
+	<% end %>
+
+	</tbody>
+ </table>

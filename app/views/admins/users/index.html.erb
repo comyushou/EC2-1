@@ -14,10 +14,10 @@
 	<tbody>
 		<tr>
 			<td>
-				<%= user.user_id %>
+				<%= user.id %>
 			</td>
 			<td>
-				<%= link_to admins_users_path do %>
+				<%= link_to admins_user_path(user) do %>
 				<%= user.family_name %>
 				<%= user.first_name %>
 				<% end %>
@@ -26,7 +26,12 @@
 				<%= user.email %>
 			</td>
 			<td>
-				<%= user.is_active %>
+				<% if user.is_active %>
+					有効
+				<% else %>
+					退会済
+				<% end %>
+
 			</td>
 		</tr>
 
