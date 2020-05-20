@@ -1,0 +1,5 @@
+<%= attachment_image_tag(@item, :picture, :fill, 220, 180) %>
+<%= @item.name %>
+<%= @item.description %>
+<%= render 'price', item: @item %>
+<%= render 'cartin', item: @item %>

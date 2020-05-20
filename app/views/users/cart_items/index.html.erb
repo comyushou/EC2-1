@@ -12,5 +12,14 @@
 		</tr>
 	</thead>
 	<tbody>
+	 <%= @cart_items.each do |cart_item| %>
+	  	<tr>
+	  		<%= link_to item_path(cart_item.item) do %>
+		  		<%= attachment_image_tag(cart_item.item, :image, :fill, 100, 100) %>
+		  		<%= cart_item.item.name %>
+	  		<% end %>
+	  	</tr>
+	<% end %>
+
 	</tbody>
  </table>
