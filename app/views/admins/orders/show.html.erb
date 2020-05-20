@@ -1,0 +1,60 @@
+<h4>注文履歴詳細</h4>
+
+  <%= form_for(@order,url:admins_order_path) do |f| %>
+
+  <p><b>購入者</b> <%= link_to admins_user_path(@order.id)do %>
+                   <%= @order.user.family_name %> <%= @order.user.first_name %></p>
+                  <% end %>
+
+  <p><b>配送先</b> 〒<%= @order.postal_code %> <%= @order.address %><br>
+                    <%= @order.review_name %></p>
+
+  <p><b>支払方法</b> <%= @order.is_payment_method %></p>
+
+  <p><b>注文ステータス</b> <%= f.select :order_status, Order.order_statuses.keys.to_a, {} %>
+     <%= f.submit "更新" %><% end %></p>
+
+
+
+
+  <table>
+  	<thead>
+  		<tr>
+  			<th>商品名</th>
+  			<th>単価(税込)</th>
+  			<th>数量</th>
+  			<th>小計</th>
+  			<th>制作ステータス</th>
+  		</tr>
+  	</thead>
+
+
+      <tr>
+        <% totalprice = 0 %>
+        <% @userorder.each do |order| %>
+          <td><%= order.item.name %></td>
+          <td><%= order.item.price %></td>
+          <td><%= order.unit %></td>
+          <td><%= order.item.price.to_i * order.unit %></td>
+
+          <td><%= form_for(order,url:admins_path(order.id)) do |f| %>
+                <%= f.select :production_status, OrderItem.production_statuses.keys.to_a, {} %>
+                <%= f.submit "更新" %>
+              <% end %></td>
+      </tr>
+        <% totalprice += (order.item.price.to_i * order.unit) %>
+        <% end %>
+  </table>
+
+<!-- ここで分割 -->
+
+  <p><b>商品合計</b> <%= totalprice %></p>
+  <p><b>送料</b> <%= @order.postage %></p>
+  <p><b>請求金額合計 <%= (totalprice +  @order.postage)%></b></p>
+
+
+
+
+
+
+
