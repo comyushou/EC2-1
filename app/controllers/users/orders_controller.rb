@@ -6,6 +6,8 @@ class Users::OrdersController < ApplicationController
 
 	def create
 		@order = Order.new()
+		@order_item.price = @item.price
+		@order_item.save
 	end
 
 	def index
@@ -22,16 +24,16 @@ class Users::OrdersController < ApplicationController
 		params.require(:order).permit(:postage, :is_payment_method, :order_status, :review_name, :postal_code, :address, :billing_amount)
 	end
 
+	private
+	def 
+		
+	end
+
 	def confirm
 	end
 
 	def complete
 	end
 
-	private
-	def 
-		
-	end
 
 end
-
