@@ -1,0 +1,24 @@
+<table>
+	<thead>
+		<tr>
+			<th>
+				<h3>ジャンル検索</h3>
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td>
+				<% @genres.each do |genre| %>
+					<%= hidden_field_tag :genre_id, genre.id %>
+					<%= link_to "#{genre.name}", users_items_path %>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+

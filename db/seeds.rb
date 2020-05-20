@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# 下記のコードでAdminのDB上にメールとパスワードが登録される。
 Admin.create!(
    email: 'admin@admin.com',
    password: 'adminadmin'

@@ -18,6 +18,7 @@
 				<%= order.family_name %><%= order.first_name %>
 			</td>
 			<td><%= order.order_status %></td>
+			<!-- orderの中でorderにアソシエーションしているorder_itemを回す -->
 			<% order.order_items.each do |order_item| %>
 				<tr>
 					<td><%= order_item.item.name %></td>
