@@ -15,25 +15,17 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def show
-
+		@order = Order.find(params[:id])
+	    @order_items = OrderItems.where(order_id: params[:id])
 	end
 
 	private
 
-	def order_params
-		params.require(:order).permit(:postage, :is_payment_method, :order_status, :review_name, :postal_code, :address, :billing_amount)
-	end
-
-	private
-	def 
-		
-	end
 
 	def confirm
 	end
 
 	def complete
 	end
-
 
 end
