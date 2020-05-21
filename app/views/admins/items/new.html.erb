@@ -1,25 +1,59 @@
-<h3>新規登録</h3>
+<div class="container">
+
+  <h4 style ="margin-bottom:100px;"><span style="background-color:#ffcc99">　商品新規登録　</span></h4>
 
 
-
-  <%= form_for(@item,url:admins_items_path) do |f| %>
-
-    <img src="/assets/sara.jpg" alt="新規登録する画像を選択してください" style="width:300px; height:200px;">
-
-    <%= f.attachment_field :picture %>
-
-    <!-- ここで分割 -->
-
-    商品名 <%= f.text_field :name %><br>
-	  商品説明 <%= f.text_area :description %><br>
-
-	ジャンル
-	<%= f.collection_select :genre_id,Genre.all,:id,:name,:include_blank => "選択してください" %><br>
-
-	税抜価格 <%= f.text_field :price %>円<br>
-
-	販売ステータス
-	<%= f.select :is_sale_status,[["有効","true"],["無効","false"]],:include_blank =>"選択してください" %>
-
-    <p><%= f.submit "新規登録" %><p>
+  <% if @item.errors.any? %>
+　　<% @item.errors.full_messages.each do |message| %>
+    <div class="row">
+　　<%= message %>⚠︎<br>
+    </div>
+　　<% end %>
   <% end %>
+
+  <center>
+
+  <div class="row">
+    <div class="col-xs-4">
+
+      <%= form_for(@item,url:admins_items_path) do |f| %>
+        <img src="/assets/sara.jpg" alt="新規登録する画像を選択してください" style="width:300px; height:200px;">
+        <%= f.attachment_field :picture %>
+
+    </div>
+
+    <div class="col-xs-2 pull-left">
+      <p>商品名</p>
+      <p style ="margin-bottom: 160px">商品説明</p>
+      <p>ジャンル</p>
+      <p style ="margin-top: 20px">税抜価格</p>
+      <p>販売<br>ステータス</p>
+
+    </div>
+
+    <div class="col-xs-3">
+
+      <p><%= f.text_field :name, :size=>"26" %></p>
+  	  <p><%= f.text_area :description %></p>
+  	  <p><%= f.collection_select :genre_id,Genre.all,:id,:name,:include_blank => "-- 選択してください --" %></p>
+  	  <p><%= f.text_field :price %> 円</p>
+	  <%= f.select :is_sale_status,[["有効","true"],["無効","false"]],:include_blank =>"-- 選択してください --" %></p>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-xs-3 pull-right">
+
+      <%= f.submit "新規登録",class:"btn btn-warning btn-lg" %>
+      <% end %>
+
+    </div>
+
+  </div>
+
+  </center>
+
+</div>
