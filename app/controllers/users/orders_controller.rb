@@ -15,7 +15,8 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def show
-
+		@order = Order.find(params[:id])
+	    @order_items = OrderItems.where(order_id: params[:id])
 	end
 
 	private
@@ -35,5 +36,5 @@ class Users::OrdersController < ApplicationController
 	def complete
 	end
 
-
+end
 end

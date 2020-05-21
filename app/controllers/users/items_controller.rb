@@ -21,7 +21,7 @@ class Users::ItemsController < ApplicationController
 	end
 
 	def show
-
+		@genres = Genre.all
 		@item = Item.find(params[:id])
 		#@genres = Genre.where(is_status: true) ＃使わないかも
 		@cart = @item.cart_items.build
@@ -32,6 +32,5 @@ class Users::ItemsController < ApplicationController
 	def item_params
 		params.require(:item).permit(:name, :price, :picture)
 	end
-
 
 end
