@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get 'home/about' => 'home#about'
   	resources :items, only: [:index, :show]
   	resources :cart_items, only: [:index, :create, :update]
-  	delete 'cart_items/:id/items/:id' => 'users/cart_items#destroy_part'
-  	delete 'cart_items/:id' => 'users/cart_items#destroy_cart'
+    delete 'cart_items' => 'cart_items#destroy_cart', as: 'destroy_cart'  #全削除はIDがいらない
+  	delete 'cart_items/:id/items/:id' => 'cart_items#destroy_part'
   	resources :orders, only: [:new, :create]
   	post 'orders/confirm' => 'orders#confirm'
   	get 'orders/complete' => 'orders#complete'

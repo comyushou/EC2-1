@@ -1,6 +1,20 @@
 class Users::ItemsController < ApplicationController
 	def index
 
+		@items = Item.all
+		@number = 0
+
+		@genres = Genre.where(is_status: true) #ステータスが有効な複数のジャンルを呼び出し,商品が無効にできない
+		@genres.each do |genre|
+			items_total = genre.items.count #有効商品が何個あるかを出すための定義
+			@number += items_total
+		end
+
+
+		@genres = Genre.all
+
+
+
 		# indexのurlにジャンルidがある時を記述する
 		if params[:genre_id]
 			# @itemsは、ジャンルのジャンルidを引っ張って来る
@@ -32,5 +46,10 @@ class Users::ItemsController < ApplicationController
 	def item_params
 		params.require(:item).permit(:name, :price, :picture)
 	end
+
+
+
+
+
 
 end
