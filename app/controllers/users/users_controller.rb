@@ -1,13 +1,21 @@
 class Users::UsersController < ApplicationController
+	before_action :authenticate_user!, only: [:create, :edit]
 
 	def show
 		@user = current_user
 	end
 
 	def edit
+		@user = current_user
 	end
 
 	def update
+		@user = current_user
+		if @user.update(user_params)
+			redirect_to users_mypage_path
+		else
+			render 'edit'
+		end
 	end
 
 	def user_params
@@ -17,6 +25,9 @@ class Users::UsersController < ApplicationController
 	end
 
 	def hide
+		@user = current_user
+		@user.destroy
+		redirect_to users_root_path
 	end
 
 end

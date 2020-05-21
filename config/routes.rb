@@ -20,9 +20,10 @@ Rails.application.routes.draw do
   	post 'orders/confirm' => 'orders#confirm'
   	get 'orders/complete' => 'orders#complete'
   	get 'mypage' => 'users#show'
+    patch 'mypage/edit' => 'users#update'
+    get 'mypage/edit' => 'users#edit'
   	get 'leave' => 'users#leave'
-  	get 'hide' => 'users#hide'
-  	get 'edit' => 'users#edit'
+  	delete 'hide' => 'users#hide'
   	get 'order_items' => 'orders#index'
   	get 'order_items/:id' => 'order#show'
   	patch '' => 'users/users#update'
@@ -34,7 +35,8 @@ Rails.application.routes.draw do
   	get 'top' => 'top#top'
   	resources :items, only: [:new, :index, :create, :show, :edit, :update]
   	resources :genres, only: [:index, :create, :edit, :update]
-  	resources :users, only: [:index, :show, :edit, :update]
+  	resources :users, only: [:index, :show, :edit]
+    patch 'users/:id/edit' => 'users#update'
   	resources :orders, only: [:index, :show, :update]
   	patch 'order_items/:id' => 'order_items#update'
   end

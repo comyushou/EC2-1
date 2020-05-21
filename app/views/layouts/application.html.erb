@@ -19,15 +19,27 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
+              <% if @user == current_user %>
+              <li>ようこそ、<%= current_user.family_name %><%= current_user.first_name %>さん！</li>
+              <% end %>
               <li><%= link_to 'マイページ', users_mypage_path %></li>
               <li><%= link_to '商品一覧', users_items_path %></li>
               <li><%= link_to 'カート', users_cart_items_path %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% elsif admin_signed_in? %>
+              <li><%= link_to '商品一覧', admins_items_path %></li>
+              <li><%= link_to '会員一覧', admins_users_path %></li>
+              <li><%= link_to '注文履歴一覧', admins_orders_path %></li>
+              <li><%= link_to 'ジャンル一覧', admins_genres_path %></li>
+              <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to '商品一覧', users_items_path %></li>
               <li><%= link_to '新規登録', new_user_registration_path %></li>
               <li><%= link_to 'ログイン', new_user_session_path %></li>
             <% end %>
+
+
+
           </ul>
         </nav>
       </div>

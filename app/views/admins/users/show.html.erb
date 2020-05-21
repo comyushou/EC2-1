@@ -7,9 +7,14 @@
 
 			<tr>
 				<td>顧客ID</td>
-				<td><%= @user.user_id %></td>
-				<td><%= @user.is_active %></td>
-			</tr>
+				<td><%= @user.id %></td>
+				<td>
+					<% if @user.is_active %>
+						有効会員
+					<% else %>
+						無効会員
+					<% end %></td>
+				</tr>
 
 			<tr>
 				<td>氏名</td>
@@ -35,7 +40,7 @@
 
 			<tr>
 				<td>電話番号</td>
-				<td><%= @user.fone_number %></td>
+				<td><%= @user.phone_number %></td>
 			</tr>
 
 			<tr>
@@ -47,6 +52,7 @@
 
 </table>
 
-<%= link_to "編集する", edit_admins_user_path(@uesr) %>
+<%= link_to "編集する", edit_admins_user_path(@user) %>
 
-<%= link_to "注文履歴一覧を見る", admins_orders_path %>
+
+<%= link_to "注文履歴一覧を見る", admins_order_path(@user) %>

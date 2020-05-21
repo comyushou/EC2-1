@@ -1,5 +1,5 @@
 <!-- 編集フォーム　-->
-<%= form_for @address, url: users_addresses_path do |f|%>
+<%= form_for @address, url: users_address_path, method: :patch do |f|%>
 	<table>
 		<tr>
 			<th>郵便番号（ハイフンなし）</th>
