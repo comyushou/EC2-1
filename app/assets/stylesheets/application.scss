@@ -14,8 +14,21 @@
  *= require_self
  */
   @import "bootstrap-sprockets";
-  @import "bootstrap";        
+  @import "bootstrap";
 
 .plus_link:hover{
 	text-decoration: none;
+}
+
+
+
+
+
+.itemtable{
+	width: 80%;
+}
+
+.itemtable tr,td{
+	border-bottom:solid 1px black;
+	border-top:solid 1px black;
 }
