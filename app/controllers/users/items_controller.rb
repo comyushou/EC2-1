@@ -5,7 +5,7 @@ class Users::ItemsController < ApplicationController
 
 		@genres = Genre.where(is_status: true) #ステータスが有効な複数のジャンルを呼び出し,商品が無効にできない
 		@genres.each do |genre|
-			items_total = genre.items.count
+			items_total = genre.items.count #有効商品が何個あるかを出すための定義
 			@number += items_total
 		end
 
@@ -16,7 +16,7 @@ class Users::ItemsController < ApplicationController
 	end
 
 	def show
-
+		@genres = Genre.all
 		@item = Item.find(params[:id])
 		#@genres = Genre.where(is_status: true) ＃使わないかも
 		@cart = @item.cart_items.build
@@ -25,11 +25,8 @@ class Users::ItemsController < ApplicationController
 	private
 	def item_params
 		params.require(:item).permit(:name, :price, :picture)
-
-		@genres = Genre.all
-
 	end
 
 
-  end
+
 end
