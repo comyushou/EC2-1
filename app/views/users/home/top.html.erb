@@ -1,12 +1,33 @@
+<div class="container top-container">
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render 'layouts/genreslist' %>
+		</div>
+			<div class="col-xs-9">
+			<div class="main-content">
+				<div class="main-image">
+					<img src="/assets/holl-cake" style="width:600px; height:400px;">
+					<div class="main-text">
+						大切なひとときを<br>
+						ながのケーキと共に...
+					</div>
+				</div>
+				<h2>おすすめ商品</h2>
+				<div class="product-box">
+					<% @items.each do |item| %>
+						<div class="product-image">
+						<%= attachment_image_tag item, :picture,:fill,130,130,format:'jpg'%></div>
+						<div class="product-comment">
+							<span class="product-name"><%= item.name %></span>
+							<span class="product-price"><%= item.price %></span>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			</div>
 
-<div class="main-image">
-	<img src="/assets/holl-cake" style="width:300px; height:200px;">
-	<div class="main-text">
-		大切なひとときを<br>
-		ながのケーキと共に...
 	</div>
 </div>
 
 
-<%= render 'layouts/genreslist' %>
 

@@ -15,16 +15,17 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def show
-
+		@order = Order.find(params[:id])
+	    @order_items = OrderItems.where(order_id: params[:id])
 	end
 
 	private
 
-	private
 
 	def confirm
 	end
 
 	def complete
 	end
+
 end
