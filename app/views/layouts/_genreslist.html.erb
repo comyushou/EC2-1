@@ -11,8 +11,10 @@
 		<tr>
 			<td>
 				<% @genres.each do |genre| %>
-					<%= hidden_field_tag :genre_id, genre.id %>
-					<%= link_to "#{genre.name}", users_items_path %>
+				　　<!-- 飛ばす先はindexページだが、引数にジャンルidを指定してコントローラーでif文を使い普通のindexページとgenreのindexページを分岐させる
+					(このURLで飛ぶのはジャンルのindexページのみ) -->
+					<!-- パラメーターとしてジャンルidをindexに渡す -->
+					<%= link_to "#{genre.name}", users_items_path(genre_id: genre.id) %>
 				<% end %>
 			</td>
 		</tr>
