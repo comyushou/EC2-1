@@ -1,27 +1,40 @@
-<h3>商品編集</h3>
+<div class="container">
 
-  <%= attachment_image_tag @item, :picture,:fill,300,200,format:'jpg'%>
+  <div class="row">
+    <h4 style ="margin-bottom:100px;"><span style="background-color:#ffcc99" >　商品編集　</span></h4>
+  </div>
 
-  <%= form_for(@item,url:admins_item_path(@item)) do |f| %>
+    <div class="row">
+      <div class="col-xs-4">
 
+        <%= attachment_image_tag @item, :picture,:fill,300,200,format:'jpg'%>
 
-    <%= f.attachment_field :picture %>
+        <%= form_for(@item,url:admins_item_path(@item)) do |f| %>
 
-    <!-- ここで分割 -->
+        <%= f.attachment_field :picture %>
 
-    商品名 <%= f.text_field :name %><br>
+      </div>
 
-    商品説明<%= f.text_area :description %><br>
+      <div class="col-xs-4">
 
-  ジャンル
-  <%= f.collection_select :genre_id,Genre.all,:id,:name %><br>
+        商品名 <%= f.text_field :name %><br>
 
-  税抜価格<%= f.text_field :price %>円<br>
+        商品説明<%= f.text_area :description %><br>
 
-  販売ステータス
-  <%= f.select :is_sale_status,[["販売中","true"],["売切れ","false"]] %>
+        ジャンル<%= f.collection_select :genre_id,Genre.all,:id,:name %><br>
 
-  <!-- ここで分割 -->
+        税抜価格<%= f.text_field :price %>円<br>
 
-    <p><%= f.submit "変更を保存" %><p>
-  <% end %>
+        販売ステータス<%= f.select :is_sale_status,[["販売中","true"],["売切れ","false"]] %>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-4  pull-right">
+        <p><%= f.submit "変更を保存",class:"btn btn-warning btn-lg" %></p>
+      </div>
+           <% end %>
+    </div>
+
+</div>

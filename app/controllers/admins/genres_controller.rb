@@ -6,9 +6,13 @@ before_action :authenticate_admin!
 	end
 
 	def create
-		genre = Genre.new(genre_params)
-		genre.save
+		@genre = Genre.new(genre_params)
+		if @genre.save
 		redirect_to request.referer
+	    else
+	    @genres = Genre.all
+        render :index
+	    end
 	end
 
 	def edit

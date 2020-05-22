@@ -1,27 +1,42 @@
-<h3>商品詳細</h3>
+<div class="container">
 
-  <%= attachment_image_tag @item, :picture,:fill,300,200,format:'jpg'%>
+  <div class="row">
+  <h4 style ="margin-bottom:100px;"><span style="background-color:#ffcc99" >　商品詳細　</span></h4>
+  </div>
 
-  <!-- ここで分割 -->
+  <div class="row">
+    <div class="col-xs-4">
 
-  商品名 <%= @item.name %><br>
+      <%= attachment_image_tag @item, :picture,:fill,250,200,format:'jpg'%>
 
-  商品説明 <%= @item.description %><br>
+    </div>
 
-  ジャンル <%= @item.genre.name %><br>
+    <div class="col-xs-4">
 
-  税込価格(税抜価格) <%= @zeikomi %>(<%= @item.price %>)円<br>
+    <p>商品名　　<%= @item.name %></p>
 
+    <p>商品説明　<%= @item.description %></p>
 
+    <p>ジャンル　<%= @item.genre.name %></p>
 
-  販売ステータス<% if @item.is_sale_status  == true %>
+    <p>税込価格(税抜価格)　<%= @zeikomi %>(<%= @item.price %>)円</p>
+
+    <p>販売ステータス　<% if @item.is_sale_status  == true %>
               販売中
             <% else %>
               売切れ
-            <% end %>
+            <% end %></p>
 
-  <!-- ここで分割 -->
+    </div>
+  </div>
 
-  <%= link_to "編集する",edit_admins_item_path(@item.id) %>
+  <div class="row">
+    <div class="col-xs-4 pull-right">
+
+    <%= link_to "編集する",edit_admins_item_path(@item.id),class:"btn btn-warning btn-lg" %>
+
+    </div>
+  </div>
+
 
 
