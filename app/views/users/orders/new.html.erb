@@ -5,18 +5,39 @@
 	<!-- 支払い方法 -->
 	<h2>支払い方法</h2>
 		<p>
-			<label><%= f.radio_button :is_payment_method, :クレジットカード, checked: "checked" %>クレジットカード</label>
+			<label>
+				<%= f.radio_button :is_payment_method, :クレジットカード, checked: "checked" %>クレジットカード</label>
 		</p>
 		<p>
 			<label><%= f.radio_button :is_payment_method, :銀行振り込み %>銀行振り込み</label>
 		</p>
-
-
-
-
-	<!-- お届け先 -->
 	<h2>お届け先</h2>
-
-
-	<!-- 自分の住所 -->
+		<label>
+			<%= radio_button_tag("1", "user_address") %>
+		</label>
+		<P>郵便番号<span>
+			<%= current_user.postal_code %>
+			<%= current_user.address %>
+			<%= current_user.first_name %>
+			<%= current_user.first_name %></span>
+		</P>
+		<label>
+			<%= f.radio_button_tag("2", "addresses_address") %>登録済み住所から選択</label><br>
+			<%= f.label :user_id %>
+			<%= f.collection_select :user_id, current_user.address, :id, full_address %><br>
+			<%= current_user.address %>
+			<label>
+			<%= f.radio_button_tag("3", "new_user_address") %>新しいお届け先</label>
+			<%= f.field_for :addresses do |address| %>
+			<p>郵便番号
+				<%= na.text_field :postal_code %><span>ハイフンなし</span>
+			</p>
+			<p>住所
+				<%= na.text_field :address %>
+			</p>
+			<p>宛名
+				<%= na.text_field :address_name %>
+			</p>
+			<% end %>
+			<%= f.submit "確認画面へ進む" %>
 <% end %>

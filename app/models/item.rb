@@ -6,4 +6,8 @@ class Item < ApplicationRecord
 
 	attachment :picture
 
+	validates :genre_id,:name,:price,:picture,:description, presence: true
+	validates :is_sale_status, inclusion: { in: [true,false]}
+
 end
+
