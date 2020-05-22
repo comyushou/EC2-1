@@ -13,7 +13,6 @@ class Users::OrdersController < ApplicationController
 	def index
 		@orders = current_user.orders.reverse
 	end
-
 	def show
 		@order = Order.find(params[:id])
 	    @order_items = OrderItems.where(order_id: params[:id])
@@ -23,6 +22,7 @@ class Users::OrdersController < ApplicationController
 
 
 	def confirm
+		@order = current_user.carts
 	end
 
 	def complete
