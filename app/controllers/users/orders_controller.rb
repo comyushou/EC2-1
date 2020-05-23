@@ -10,6 +10,8 @@ class Users::OrdersController < ApplicationController
 		@order = Order.new()
 		@order_item.price = @item.price
 		@order_item.save
+
+
 	end
 
 	def index
@@ -24,8 +26,6 @@ class Users::OrdersController < ApplicationController
 		@cart_items = current_user.cart_items
 	end
 
-
-	private
 
 	def complete
 	end
