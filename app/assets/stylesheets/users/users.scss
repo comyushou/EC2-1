@@ -18,11 +18,11 @@
 	font-size: 20px;
 	font-weight: bold;
 }
-table {
+.user-table {
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
-table, td {
+.user-table, .left-td, .right-td {
 	border: 1px solid #2b2b2b;
 }
 .left-td {
@@ -30,12 +30,14 @@ table, td {
 	width: 200px;
 	height: 50px;
 	padding-left: 5px;
+	font-size: 14px;
 }
 .right-td {
 	background-color: #ffffff;
 	width: 400px;
 	height: 50px;
 	padding-left: 5px;
+	font-size: 14px;
 }
 .shipping-address {
 	margin-bottom: 15px;

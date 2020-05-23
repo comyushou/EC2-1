@@ -20,7 +20,6 @@
 	text-decoration: none;
 }
 
-
 .sign_up_box {
 	margin-top: 100px;
 	margin-left: 200px;
@@ -30,18 +29,21 @@ header {
 	background-color: #FFA000;
 	height: 70px;
 }
-footer {
-	background-color: #FFA000;
-	height: 70px;
+.header-headline {
+	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+	font-size: 28px;
+	color: #331a00;
+	line-height: 70px;
+	border: 1px solid #331a00;
+	padding: 8px;
+	background-color: #f5c4c4;
+	border-radius: 10px;
+}
+.user-name {
+	line-height: 70px;	
 }
 body {
 	background-color: #ffffe0;
-}
-.field {
-	margin-right: 30px;
-}
-.form-box {
-	display: inline-block;
 }
 .user-login-container {
 	margin: 0 auto;
@@ -64,8 +66,8 @@ body {
 	margin-left: 250px;
 }
 .col-md-9 {
-text-align: right;
-margin-top: 10px;
+	text-align: right;
+	margin-top: 10px;
     
 }
 .login-button {
@@ -79,6 +81,48 @@ margin-top: 10px;
 .field-password {
 	margin-top: 18px;
 }
-.email-form, .password-form {
+.email-form, .password-form, .family_name, .first_name, .kana_family_name, .kana_first_name, .email, .postal_code, .address, .phone_number, .password, .password_confirmation {
 	border-radius: 5px;
+}
+.sign-up-container {
+	margin-top: 100px;
+}
+.col-md-1 {
+	text-align: right;
+}
+.col-md-3 {
+	text-align: left;
+}
+.sign-up-row {
+	margin-bottom: 8px;
+	line-height: 25px;
+}
+.top-row {
+	margin-top: 50px;
+}
+.sign_up-headline, .login-link, .user-edit-headline {
+	background-color: #f5f5f5;
+	font-size: 20px;
+	line-height: 20px;
+	padding: 5px;
+	margin-left: 70px;
+}
+.col-md-12 {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.login-path {
+	margin-top: 10px;
+	margin-left: 170px;
+}
+.update-row-button {
+	margin-top: 20px;
+}
+.user-edit-btn {
+	padding: 5px 25px 5px;
+}
+.leave-btn {
+	margin-left: 240px;
+	padding: 5px 25px 5px;
 }
