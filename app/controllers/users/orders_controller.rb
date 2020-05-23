@@ -21,9 +21,9 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def confirm
-
 		@cart_items = current_user.cart_items
 	end
+
 
 	private
 	def order_params
