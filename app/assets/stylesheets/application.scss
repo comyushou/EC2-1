@@ -14,11 +14,17 @@
  *= require_self
  */
   @import "bootstrap-sprockets";
-  @import "bootstrap";        
+  @import "bootstrap";
 
 .plus_link:hover{
 	text-decoration: none;
 }
+
+.sign_up_box {
+	margin-top: 100px;
+	margin-left: 200px;
+}
+
 header {
 	background-color: #FFA000;
 	height: 70px;

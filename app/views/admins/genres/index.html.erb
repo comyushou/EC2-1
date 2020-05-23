@@ -1,36 +1,56 @@
-<h3>ジャンル一覧：追加</h3>
+<div class="container">
 
-    <%= form_for(@genre,url:"/admins/genres") do |f| %>
+  <h4 style ="margin-bottom:30px;"><span style="background-color:#ffcc99">　ジャンル一覧：追加　</span></h4>
+
+
+  <% if @genre.errors.any? %>
+    <div style="wigth:100%">
+  <% @genre.errors.full_messages.each do |message| %>
+  <%= message %>⚠︎
+  <% end %>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+
+    <%= form_for(@genre,url:admins_genres_path) do |f| %>
       ジャンル <%= f.text_field :name %>
-	  <label><%= f.radio_button :is_status, "true" %>有効</label>
-	  <lavel><%= f.radio_button :is_status, "false" %>無効</lavel>
-      <%= f.submit "追加" %>
-    <% end %><br>
+      <span class ="hako">
+	    <label><%= f.radio_button :is_status, "true" %>有効</label>
+	    <lavel><%= f.radio_button :is_status, "false" %>無効</lavel>
+      <%= f.submit "追加",class:"btn btn-warning btn" %>
+      </span>
+    <% end %>
 
 
 
-  <table border="1">
-  	<thead>
-  		<tr>
-  			<th>ジャンル</th>
-  			<th>状態</th>
-  			<th></th>
-  		</tr>
-  	</thead>
+    <div class ="genretable" style="margin-top:30px">
+    <table class ="table">
+    	<thead>
+    		<tr class="active">
+    			<th width="50%">ジャンル</th>
+    			<th>状態</th>
+    			<th></th>
+    		</tr>
+    	</thead>
 
-  		<% @genres.each do |genre| %>
-  		<tr>
-  			<td><%= genre.name %></td>
-  			<td><% if genre.is_status  == true %>
-              有効
-            <% else %>
-              無効
-            <% end %>
-        </td>
-        <td><%= link_to "編集する",edit_admins_genre_path(genre.id) %></td>
-  		</tr>
-  		<% end %>
+    		<% @genres.each do |genre| %>
+    		<tr>
+    			<td><%= genre.name %></td>
+    			<td><% if genre.is_status  == true %>
+                有効
+              <% else %>
+                無効
+              <% end %>
+          </td>
+          <td><%= link_to "編集する",edit_admins_genre_path(genre.id),class:"btn btn-warning btn-sm" %></td>
+    		</tr>
+    		<% end %>
 
-  </table>
+    </table>
+  </div>
 
+  </div>
+</div>
 

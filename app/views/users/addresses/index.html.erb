@@ -1,50 +1,64 @@
-<h2>配送先登録/一覧</h2>
+<div class="container">
+		<h2>配送先登録/一覧</h2>
 
-<%= form_for @address, url: users_addresses_path do |f| %>
+		<%= form_for @address, url: users_addresses_path do |f| %>
 
-	<table class="table">
-		<tr>
-			<th>郵便番号（ハイフンなし）</th>
-			<td>
-				<%= f.text_field :postal_code %>
-			</td>
-		</tr>
-		<tr>
-			<th>住所</th>
-			<td>
-				<%= f.text_field :address %>
-			</td>
-		</tr>
-		<tr>
-			<th>宛名</th>
-			<td>
-				<%= f.text_field :name %>
-			</td>
-			<td>
-				<%= f.submit "登録する" %>
-			</td>
-		</tr>
-	</table>
-<% end %>
-
-	<table class="table">
-		<thead>
-			<tr>
-				<th>郵便番号</th>
-				<th>住所</th>
-				<th>宛名</th>
-			</tr>
-		</thead>
-		<% @addresses.each do |address| %>
-			<tbody>
-				<tr>
-					<td><%= address.postal_code %></td>
-	      			<td><%= address.address %></td>
-	      			<td><%= address.name %></td>
-	      			<td><%= link_to "編集する", edit_users_address_path(address) %></td>
-	      			<td><%= link_to "削除する", users_address_path(address), method: :delete %></td>
-				</tr>
-			</tbody>
+			<table border="0" width="800" height="100">
+				<div class="form-group">
+					<tr>
+						<th width="40%">郵便番号（ハイフンなし）</th>
+						<td>
+							<%= f.text_field :postal_code %>
+						</td>
+					</tr>
+				</div>
+				<div class="form-group">
+					<tr>
+						<th>住所</th>
+						<td>
+							<%= f.text_field :address %>
+						</td>
+					</tr>
+				</div>
+				<div class="form-group">
+					<tr>
+						<th>宛名</th>
+						<td>
+							<%= f.text_field :name %>
+						</td>
+						<td>
+							<%= f.submit "登録する" %>
+						</td>
+					</tr>
+				</div>
+			</table>
 		<% end %>
-	</table>
+		<table class="table address">
+			<table border="1" width="700" height="200">
+				<thead>
+					<tr>
+						<th width="10%" bgcolor="#EEEEEE">郵便番号</th>
+						<th width="45%" bgcolor="#EEEEEE">住所</th>
+						<th width="20%" bgcolor="#EEEEEE">宛名</th>
+						<th width="25%" bgcolor="#EEEEEE">  </th>
+					</tr>
+				</thead>
+				<% @addresses.each do |address| %>
+					<tbody>
+						<tr>
+							<td><%= address.postal_code %></td>
+			      			<td><%= address.address %></td>
+			      			<td><%= address.name %></td>
+			      			<td>
+			      				<div class="btnform">
+				      				<%= link_to "編集する", edit_users_address_path(address), class:"btn-sm btn-primary" %></button>
+				      				<%= link_to "削除する", users_address_path(address), method: :delete, class:"btn-sm btn-danger" %>
+				      			</div>
+			      			</td>
+						</tr>
+					</tbody>
+				<% end %>
+			</table>
+		</table>
+</div>
 

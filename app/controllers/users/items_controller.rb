@@ -24,7 +24,6 @@ class Users::ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		#@genres = Genre.where(is_status: true) ＃使わないかも
 		@cart = @item.cart_items.build
-		@genres = Genre.all
 	end
 
 	private
