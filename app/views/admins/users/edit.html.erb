@@ -1,58 +1,60 @@
-<h3><%= @user.family_name %>
-	<%= @user.first_name %>さんの会員情報編集</h3>
+<div class="container admin-users-container">
+	<h3><%= @user.family_name %>
+		<%= @user.first_name %>さんの会員情報編集</h3>
 
-<!-- ここでちょっと間違えたんやけど、formをtableの中に入れたらhtmlの仕様で反応しなくなるので皆さんお気をつけて -->
-	<%= form_for(@user,url:edit_admins_user_path(@user)) do |f| %>
+	<!-- ここでちょっと間違えたんやけど、formをtableの中に入れたらhtmlの仕様で反応しなくなるので皆さんお気をつけて -->
+		<%= form_for(@user,url:edit_admins_user_path(@user)) do |f| %>
 
-		<table>
-			<tbody>
-					<tr>
-						<td>顧客ID</td>
-						<td><%= @user.id %></td>
-					</tr>
+			<table>
+				<tbody>
+						<tr>
+							<td>顧客ID</td>
+							<td><%= @user.id %></td>
+						</tr>
 
-					<tr>
-						<td>氏名</td>
+						<tr>
+							<td>氏名</td>
 
-						<td><%= f.text_field :family_name %></td>
-						<td><%= f.text_field :first_name %></td>
-					</tr>
+							<td><%= f.text_field :family_name %></td>
+							<td><%= f.text_field :first_name %></td>
+						</tr>
 
-					<tr>
-						<td>フリガナ</td>
-						<td><%= f.text_field :kana_family_name %></td>
-						<td><%= f.text_field :kana_first_name %></td>
-					</tr>
+						<tr>
+							<td>フリガナ</td>
+							<td><%= f.text_field :kana_family_name %></td>
+							<td><%= f.text_field :kana_first_name %></td>
+						</tr>
 
-					<tr>
-						<td>郵便番号</td>
-						<td><%= f.text_field :postal_code %></td>
-					</tr>
+						<tr>
+							<td>郵便番号</td>
+							<td><%= f.text_field :postal_code %></td>
+						</tr>
 
-					<tr>
-						<td>住所</td>
-						<td><%= f.text_field :address %></td>
-					</tr>
+						<tr>
+							<td>住所</td>
+							<td><%= f.text_field :address %></td>
+						</tr>
 
-					<tr>
-						<td>電話番号</td>
-						<td><%= f.text_field :phone_number %></td>
-					</tr>
+						<tr>
+							<td>電話番号</td>
+							<td><%= f.text_field :phone_number %></td>
+						</tr>
 
-					<tr>
-						<td>メールアドレス</td>
-						<td><%= f.email_field :email %></td>
-					</tr>
+						<tr>
+							<td>メールアドレス</td>
+							<td><%= f.email_field :email %></td>
+						</tr>
 
-					<tr>
-						<td>会員ステータス</td>
+						<tr>
+							<td>会員ステータス</td>
 
-						<td><label><%= f.radio_button :is_active, "true" %>有効</label></td>
-						<td><lavel><%= f.radio_button :is_active, "false" %>退会済み</lavel></td>
+							<td><label><%= f.radio_button :is_active, "true" %>有効</label></td>
+							<td><lavel><%= f.radio_button :is_active, "false" %>退会済み</lavel></td>
 
-					</tr>
-			</tbody>
-		</table>
+						</tr>
+				</tbody>
+			</table>
 
-	<%= f.submit "変更を保存する" %>
-	<% end %>
+		<%= f.submit "変更を保存する" %>
+		<% end %>
+</div>

@@ -1,58 +1,108 @@
-<div class="sign_up_box">
-<span class="sign_up" style="background-color: #dcdcdc;">新規会員登録</span>
+<div class="container sign-up-container">
+  <span class="sign_up-headline">新規会員登録</span>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row sign-up-row top-row">
+      <div class="col-md-2">名前</div>
+      <div class="col-md-1">
+        <%= f.label :family_name, "(姓)" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :family_name, autofocus: true, placeholder: "姓", class: "family_name", size: "25x5" %>
+      </div>
+      <div class="col-md-1">
+        <%= f.label :first_name, "(名)" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :first_name, autofocus: true, placeholder: "名", class: "first_name", size: "25x5" %>
+      </div>
+    </div>
 
-  <div class="field">名前
-    <%= f.label :family_name, "(姓)" %>
-    <%= f.text_field :family_name, autofocus: true, class: "family_name" %>
+    <div class="row sign-up-row">
+      <div class="col-md-2">フリガナ</div>
+      <div class="col-md-1">
+        <%= f.label :kana_family_name, "(セイ)" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :kana_family_name, autofocus: true, placeholder: "セイ", class: "kana_family_name", size: "25x5" %>
+      </div>
+      <div class="col-md-1">
+        <%= f.label :kana_first_name, "(メイ)" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :kana_first_name, autofocus: true, placeholder: "メイ", class: "kana_first_name", size: "25x5" %>
+      </div>
+    </div>
 
-    <%= f.label :first_name, "(名)" %>
-    <%= f.text_field :first_name, autofocus: true, class: "first_name" %>
+    <div class="row sign-up-row">
+      <div class="col-md-2">メールアドレス</div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <% f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: "25x5", class: "email" %>
+      </div>
+    </div>
+
+    <div class="row sign-up-row">
+      <div class="col-md-2">郵便番号(ハイフンなし)</div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <% f.label :postal_code %>
+        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "郵便番号", size: "25x5", class: "postal_code" %>
+      </div>
+    </div>
+
+    <div class="row sign-up-row">
+      <div class="col-md-2">住所(6文字以上)</div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <% f.label :address %>
+        <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "住所", size: "67x5", class: "address" %>
+      </div>
+    </div>
+
+    <div class="row sign-up-row">
+      <div class="col-md-2">電話番号(ハイフンなし)</div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <% f.label :phone_number %>
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: "電話番号", size: "25x5", class: "phone_number" %>
+      </div>
+    </div>
+
+    <div class="row sign-up-row">
+      <div class="col-md-2">パスワード
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <% f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", size: "25x5", class: "password" %>
+      </div>
+    </div>
+
+    <div class="row sign-up-row">
+      <div class="col-md-2">パスワード(確認用)</div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <% f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認用)", size: "25x20", class: "password_confirmation" %>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.submit "新規登録", class: "btn btn-success", style: "padding: 5px 45px 5px;" %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <span class="login-link">既に登録済みの方</span></br>
+  <div class="login-path"><%= link_to "こちら", new_session_path(resource_name) %>　からログインしてください。
   </div>
 
-  <div class="field">フリガナ
-    <%= f.label :kana_family_name, "(セイ)" %>
-    <%= f.text_field :kana_family_name, autofocus: true, class: "kana_family_name" %>
-
-    <%= f.label :kana_first_name, "(メイ)" %>
-    <%= f.text_field :kana_first_name, autofocus: true, class: "kana_first_name" %>
-  </div>
-
-  <div class="field">メールアドレス
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">郵便番号(ハイフンなし)
-    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-  </div>
-
-  <div class="field">住所(6文字以上)
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
-
-  <div class="field">電話番号(ハイフンなし)
-    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-  </div>
-
-  <div class="field">パスワード
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">パスワード(確認用)
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-
-<%= render "devise/shared/links" %>
 </div>

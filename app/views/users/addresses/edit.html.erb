@@ -1,25 +1,28 @@
-<!-- 編集フォーム　-->
-<%= form_for @address, url: users_address_path, method: :patch do |f|%>
-	<table>
-		<tr>
-			<th>郵便番号（ハイフンなし）</th>
-			<td>
-				<%= f.text_field :postal_code %>
-			</td>
-		<tr>
-			<th>住所</th>
-			<td>
-				<%= f.text_field :address %>
-			</td>
-		</tr>
-		<tr>
-			<th>宛名</th>
-			<td>
-				<%= f.text_field :name %>
-			</td>
-			<td>
-				<%= f.submit "編集する" %>
-			</td>
-		</tr>
-	</table>
-<% end %>
+<div class="container address_container">
+	<!-- 編集フォーム　-->
+	<%= form_for @address, url: users_address_path, method: :patch do |f|%>
+		<table>
+			<tr>
+				<th>郵便番号（ハイフンなし）</th>
+				<td>
+					<%= f.text_field :postal_code %>
+				</td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td>
+					<%= f.text_field :address %>
+				</td>
+			</tr>
+			<tr>
+				<th>宛名</th>
+				<td>
+					<%= f.text_field :name %>
+				</td>
+				<td>
+					<%= f.submit "編集する" %>
+				</td>
+			</tr>
+		</table>
+	<% end %>
+</div>
