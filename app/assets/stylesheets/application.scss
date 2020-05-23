@@ -45,6 +45,22 @@ header {
 body {
 	background-color: #ffffe0;
 }
+
+.field {
+	margin-right: 30px;
+}
+.form-box {
+	display: inline-block;
+}
+
+
+.admin-login-container {
+	margin: 0 auto;
+}
+.admin-login-container {
+	margin-top: 180px;
+}
+
 .user-login-container {
 	margin: 0 auto;
 }
@@ -66,9 +82,11 @@ body {
 	margin-left: 250px;
 }
 .col-md-9 {
-	text-align: right;
-	margin-top: 10px;
-    
+
+text-align: right;
+margin-top: 10px;
+
+
 }
 .login-button {
 	padding: 5px 30px 5px;
@@ -84,6 +102,7 @@ body {
 .email-form, .password-form, .family_name, .first_name, .kana_family_name, .kana_first_name, .email, .postal_code, .address, .phone_number, .password, .password_confirmation {
 	border-radius: 5px;
 }
+
 .sign-up-container {
 	margin-top: 100px;
 }
@@ -125,4 +144,4 @@ body {
 .leave-btn {
 	margin-left: 240px;
 	padding: 5px 25px 5px;
-}
+

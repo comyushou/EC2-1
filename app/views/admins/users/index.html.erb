@@ -1,40 +1,44 @@
-<h3>会員一覧</h3>
+<div class="container admin-users-container">
+	<span class="admin-users-headline"><h3>会員一覧</h3></span>
+		<div class="row align-items-center">
+			<table class="table">
+				<thead>
+					<tr class = "row">
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
 
-<table>
-	<thead>
-		<tr>
-			<th>会員ID</th>
-			<th>氏名</th>
-			<th>メールアドレス</th>
-			<th>ステータス</th>
-		</tr>
-	</thead>
+				<% @users.each do |user| %>
+				<tbody class = "column">
+					<tr>
+						<td></td>
+						<td>
+							<%= user.id %>
+						</td>
+						<td>
+							<%= link_to admins_user_path(user) do %>
+							<%= user.family_name %>
+							<%= user.first_name %>
+							<% end %>
+						</td>
+						<td>
+							<%= user.email %>
+						</td>
+						<td>
+							<% if user.is_active %>
+								有効
+							<% else %>
+								退会済
+							<% end %>
 
-	<% @users.each do |user| %>
-	<tbody>
-		<tr>
-			<td>
-				<%= user.id %>
-			</td>
-			<td>
-				<%= link_to admins_user_path(user) do %>
-				<%= user.family_name %>
-				<%= user.first_name %>
+						</td>
+					</tr>
+
+				</tbody>
 				<% end %>
-			</td>
-			<td>
-				<%= user.email %>
-			</td>
-			<td>
-				<% if user.is_active %>
-					有効
-				<% else %>
-					退会済
-				<% end %>
-
-			</td>
-		</tr>
-
-	</tbody>
-	<% end %>
-</table>
+			</table>
+		</div>
+</div>
