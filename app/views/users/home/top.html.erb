@@ -4,28 +4,30 @@
 			<%= render 'layouts/genreslist' %>
 		</div>
 			<div class="col-xs-9">
-			<div class="main-content">
-				<div class="main-image">
-					<img src="/assets/holl-cake" style="width:600px; height:400px;">
-					<div class="main-text">
+				<div class="main-content">
+					<div class="main-image">
+						<img src="/assets/holl-cake" style="width:600px; height:400px;">
+						<div class="main-text">
 						大切なひとときを<br>
 						ながのケーキと共に...
+						</div>
 					</div>
 				</div>
-				<h2>おすすめ商品</h2>
-				<div class="product-box">
-					<% @items.each do |item| %>
-						<div class="product-image">
-						<%= attachment_image_tag item, :picture,:fill,130,130,format:'jpg'%></div>
-						<div class="product-comment">
-							<span class="product-name"><%= item.name %></span>
-							<span class="product-price"><%= item.price %></span>
-						</div>
-					<% end %>
+				<div class="order-show">
+					<h2>おすすめ商品</h2>
+					<div class="product-box">
+						<% @items.each do |item| %>
+							<div class="product-image">
+								<%= attachment_image_tag item, :picture,:fill,130,130,format:'jpg'%>
+								<div class="product-comment">
+									<div class="product-name"><%= item.name %></div>
+									<div class="product-price"><%= item.price %></div>
+								</div>
+							</div>
+						<% end %>
+					</div>
 				</div>
 			</div>
-			</div>
-
 	</div>
 </div>
 

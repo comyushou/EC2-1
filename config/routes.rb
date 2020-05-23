@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {
   	:registrations => 'users/registrations',
-  	:sessions => 'users/sessions'
+  	:sessions => 'users/sessions',
+    :passwords => 'users/passwords'
   }
   devise_for :admins, :controllers => {
   	:sessions => 'admins/sessions'
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   	get 'orders/confirm' => 'orders#confirm'
   	get 'orders/complete' => 'orders#complete'
   	get 'mypage' => 'users#show'
-    patch 'mypage/edit' => 'users#update'
+    patch 'mypage' => 'users#update'
     get 'mypage/edit' => 'users#edit'
   	get 'leave' => 'users#leave'
   	delete 'hide' => 'users#hide'
