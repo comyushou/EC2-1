@@ -1,13 +1,14 @@
 <div class="container">
 
-  <h4 style ="margin-bottom:30px;margin-left:60px"><span style="background-color:#ffcc99">　注文履歴詳細　</span></h4>
+  <h4 style ="margin-top:100px;margin-bottom:30px;margin-left:60px"><span style="background-color:#ffcc99">　注文履歴詳細　</span></h4>
 
   <div class ="row">
 
     <%= form_for(@order,url:admins_order_path) do |f| %>
 
-      <p><b>購入者</b> <%= link_to admins_user_path(@order.id)do %>
-                   <%= @order.user.family_name %> <%= @order.user.first_name %></p>
+      <p><b>購入者</b> <%= link_to admins_user_path(@order.id),class: "ordername" do %>
+                   <span class ="ordername">
+                   <%= @order.user.family_name %> <%= @order.user.first_name %></span></p>
                   <% end %>
 
       <p><b>配送先</b> 〒<%= @order.postal_code %> <%= @order.address %><br>
@@ -16,17 +17,18 @@
       <p><b>支払方法</b> <%= @order.is_payment_method %></p>
 
       <p><b>注文ステータス</b> <%= f.select :order_status, Order.order_statuses.keys.to_a, {} %>
-     <%= f.submit "更新",class:"btn btn-warning btn" %></p>
+     <%= f.submit "更新",class:"btn btn-warning btn-sm" %></p>
     <% end %>
 
   </div>
 
   <div class ="row">
+    <div class ="col-xs-10">
 
 
-  <table>
+  <table class="table">
   	<thead>
-  		<tr>
+  		<tr class="active">
   			<th>商品名</th>
   			<th>単価(税込)</th>
   			<th>数量</th>
@@ -46,18 +48,25 @@
 
           <td><%= form_for(order,url:admins_path(order.id)) do |f| %>
                 <%= f.select :production_status, OrderItem.production_statuses.keys.to_a, {} %>
-                <%= f.submit "更新" %>
+                <span class ="leftsub"><%= f.submit "更新",class:"btn btn-warning btn-sm" %></span>
               <% end %></td>
       </tr>
         <% totalprice += (order.item.price.to_i * order.unit) %>
         <% end %>
   </table>
+   </div>
 
-<!-- ここで分割 -->
-
+   <div class ="col-xs-2">
+  
+  <div class ="pricebox">
   <p><b>商品合計</b> <%= totalprice %></p>
   <p><b>送料</b> <%= @order.postage %></p>
   <p><b>請求金額合計 <%= (totalprice +  @order.postage)%></b></p>
+</div>
+
+</div>
+
+</div>
 
 
 

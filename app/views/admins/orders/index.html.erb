@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h4 style ="margin-bottom:50px;"><span style="background-color:#ffcc99">　注文履歴一覧　</span></h4>
+  <h4 style ="margin-top:100px;margin-bottom:50px;margin-left:70px;"><span style="background-color:#ffcc99">　注文履歴一覧　</span></h4>
 
 <center>
 
@@ -17,7 +17,7 @@
 
   	<% @orders.each do |order| %>
   	    <tr>
-  	    	<td><%= link_to admins_order_path(order.id) do %><%= order.created_at.strftime('%Y-%m-%d %H:%M:%S') %><% end %></td>
+  	    	<td><%= link_to admins_order_path(order.id), class: "ordername" do %><span class="ordername"><%= order.created_at.strftime('%Y-%m-%d %H:%M:%S') %></span><% end %></td>
 
 
   	    	<td><%= order.user.family_name %><%= order.user.first_name %></td>

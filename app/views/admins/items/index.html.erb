@@ -1,14 +1,12 @@
 <div class="container">
 
-  <h4 style ="margin-bottom:50px;"><span style="background-color:#ffcc99">　商品一覧　</span></h4>
-
-  <div class="row pull-right">
+  <h4 style ="margin-top:100px;margin-left:100px"><span style="background-color:#ffcc99">　商品一覧　</span></h4>
 
     <%= link_to(new_admins_item_path, class: "plus_link") do %>
-    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+      <div class ="itemnew">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+      </div>
 　　 <% end %>
-
-  </div>
 
   <center>
   <div class="row">
@@ -27,7 +25,7 @@
     	    <% @items.each do |item| %>
     	    <tr>
     	    	<td><%= item.id %></td>
-    	    	<td><%= link_to admins_item_path(item.id) do %><%= item.name %><% end %></td>
+    	    	<td><%= link_to admins_item_path(item.id), class: "itemname" do %><span class="itemname"><%= item.name %></span><% end %></td>
     	    	<td><%= item.price%></td>
     	    	<td><%= item.genre.name%></td>
     	    	<td><% if item.is_sale_status == true %>
