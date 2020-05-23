@@ -1,5 +1,6 @@
 class Users::UsersController < ApplicationController
-	before_action :authenticate_user!, only: [:create, :edit]
+	before_action :authenticate_user!
+	before_action :screen_user, only: [:update, :edit]
 
 	def show
 		@user = current_user
@@ -28,6 +29,12 @@ class Users::UsersController < ApplicationController
 		@user = current_user
 		@user.destroy
 		redirect_to users_root_path
+	end
+
+	def screen_user
+		if params[:id].to_i != current_user.id
+		   redirect_to users_root_path
+		end
 	end
 
 end

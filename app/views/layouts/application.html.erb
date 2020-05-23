@@ -14,13 +14,13 @@
       <div class="container">
 
         <nav class="nav navbar-left">
-          <span><img src="/assets/ながのcake" style="width:80px; height:50px;"></span>
+          <span class="header-headline">NAGANO CAKE</span>
         </nav>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <% if @user == current_user %>
-              <li>ようこそ、<%= current_user.family_name %><%= current_user.first_name %>さん！</li>
+              <li class="user-name">ようこそ、<%= current_user.family_name %><%= current_user.first_name %>さん！</li>
               <% end %>
               <li><%= link_to 'マイページ', users_mypage_path %></li>
               <li><%= link_to '商品一覧', users_items_path %></li>
@@ -33,6 +33,7 @@
               <li><%= link_to 'ジャンル一覧', admins_genres_path %></li>
               <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
             <% else %>
+              <li><%= link_to 'アバウト', users_home_about_path %></li>
               <li><%= link_to '商品一覧', users_items_path %></li>
               <li><%= link_to '新規登録', new_user_registration_path %></li>
               <li><%= link_to 'ログイン', new_user_session_path %></li>

@@ -18,14 +18,14 @@ class Users::OrdersController < ApplicationController
 	    @order_items = OrderItems.where(order_id: params[:id])
 	end
 
-	private
-
-
 	def confirm
 		@order = current_user.carts
+		
 	end
 
 	def complete
 	end
+
+	private
 
 end
