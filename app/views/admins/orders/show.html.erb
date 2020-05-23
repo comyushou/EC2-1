@@ -1,20 +1,27 @@
-<h4>注文履歴詳細</h4>
+<div class="container">
 
-  <%= form_for(@order,url:admins_order_path) do |f| %>
+  <h4 style ="margin-bottom:30px;margin-left:60px"><span style="background-color:#ffcc99">　注文履歴詳細　</span></h4>
 
-  <p><b>購入者</b> <%= link_to admins_user_path(@order.id)do %>
+  <div class ="row">
+
+    <%= form_for(@order,url:admins_order_path) do |f| %>
+
+      <p><b>購入者</b> <%= link_to admins_user_path(@order.id)do %>
                    <%= @order.user.family_name %> <%= @order.user.first_name %></p>
                   <% end %>
 
-  <p><b>配送先</b> 〒<%= @order.postal_code %> <%= @order.address %><br>
-                    <%= @order.review_name %></p>
+      <p><b>配送先</b> 〒<%= @order.postal_code %> <%= @order.address %><br>
+                        <%= @order.review_name %></p>
 
-  <p><b>支払方法</b> <%= @order.is_payment_method %></p>
+      <p><b>支払方法</b> <%= @order.is_payment_method %></p>
 
-  <p><b>注文ステータス</b> <%= f.select :order_status, Order.order_statuses.keys.to_a, {} %>
-     <%= f.submit "更新" %><% end %></p>
+      <p><b>注文ステータス</b> <%= f.select :order_status, Order.order_statuses.keys.to_a, {} %>
+     <%= f.submit "更新",class:"btn btn-warning btn" %></p>
+    <% end %>
 
+  </div>
 
+  <div class ="row">
 
 
   <table>

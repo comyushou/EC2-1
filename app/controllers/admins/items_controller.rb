@@ -10,8 +10,11 @@ before_action :authenticate_admin!
 
 	def create
 		@item = Item.new(item_params)
-		@item.save
-		redirect_to admins_item_path(@item.id)
+		if @item.save
+		  redirect_to admins_item_path(@item.id)
+		else
+		  render :new
+		end
 	end
 
 	def show
