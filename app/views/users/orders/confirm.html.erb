@@ -18,6 +18,7 @@
 	</table>
 
 			<% @sum = cart_items.order_items.price.to_i * cart_items.unit %>
+<% end %>
 	 <table>
 	 		<tr>
 	 			<th>送料</th>
@@ -26,11 +27,16 @@
 
 	 		<tr>
 	 			<th>商品合計</th>
-	 			<td>header</td>
+	 			<td><%= @sum %></td>
 	 		</tr>
 
 	 		<tr>
 	 			<th>請求金額</th>
-	 			<td>header</td>
+	 			<td><%= @sum + 800 %></td>
 	 		</tr>
 	 </table>
+
+	 <h2>支払い方法</h2>
+	 　<
+
+	 <h2>お届け先</h2>
