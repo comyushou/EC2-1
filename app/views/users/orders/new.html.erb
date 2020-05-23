@@ -18,17 +18,17 @@
 		<P>郵便番号<span>
 			<%= current_user.postal_code %>
 			<%= current_user.address %>
-			<%= current_user.first_name %>
+			<%= current_user.family_name %>
 			<%= current_user.first_name %></span>
 		</P>
 		<label>
-			<%= f.radio_button_tag("select_button", "addresses_address") %>登録済み住所から選択</label><br>
+			<%= radio_button_tag("select_button", "addresses_address") %>登録済み住所から選択</label><br>
 			<%= f.label :user_id %>
-			<%= f.collection_select :user_id, current_user.address, :id, full_address %><br>
+			<%= select_tag :user_id,options_for_select(Address.where(user_id: current_user.id).map { |e| e.postal_code }) %><br>
 			<%= current_user.address %>
 			<label>
-			<%= f.radio_button_tag("select_button", "new_user_address") %>新しいお届け先</label>
-			<%= f.field_for(@new_address) do |address| %>
+			<%= radio_button_tag("select_button", "new_user_address") %>新しいお届け先</label>
+			<%= f.fields_for(@new_address) do |address| %>
 			<p>郵便番号
 				<%= address.text_field :postal_code %><span>ハイフンなし</span>
 			</p>
@@ -36,7 +36,7 @@
 				<%= address.text_field :address %>
 			</p>
 			<p>宛名
-				<%= address.text_field :address_name %>
+				<%= address.text_field :name %>
 			</p>
 			<% end %>
 			<%= f.submit "確認画面へ進む" %>
