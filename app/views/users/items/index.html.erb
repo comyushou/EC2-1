@@ -1,15 +1,24 @@
-
 <div class="container">
-
-	<h2><%= @name %>一覧全<%= @number %>件</h2>
-		<% @items.each do |item| %>
-			<%= link_to users_item_path(item) do %>
-				<%= attachment_image_tag(item, :picture, :fill, 220, 180) %><br>
-				<%= item.name %>
-				<%= render 'price', item: item %>
-			<% end %>
-		<% end %>
+	<div class="row">
+		<div class="col-xs-2">
+		</div>
+		<div class="col-xs-10">
+			<div class="row">
+				<h2><%= @name %>一覧全<%= @number %>件</h2>
+				<div class="col-xs-4">
+					<% @items.each do |item| %>
+						<% if item.genre.is_status == true %> <!--商品の有効なものだけを表示させる-->
+							<%= link_to users_item_path(item) do %>
+								<%= attachment_image_tag(item, :picture, :fill, 220, 180) %><br>
+								<%= item.name %>
+								<%= render 'price', item: item %>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
 <%= render 'layouts/genreslist' %>
 
