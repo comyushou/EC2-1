@@ -18,12 +18,12 @@ class Users::CartItemsController < ApplicationController
 		##find_byはnilを返すというデメリットがありid以外でも検索出来るが、取得できる値は、最初にマッチした１件のみ。   #binding.pry
 		@cart_item.item_id = params[:item_id]
 		@current_items = CartItem.find_by(item_id: @cart_item.item_id,user_id: @cart_item.user_id)
-		if @current_item.blank?
+		if @current_items.blank?
 			@cart_item.save
 			redirect_to users_cart_items_path
 		else
-        	@current_item.unit += params[:unit].to_i
-            @current_item.update(cart_item_params)
+        	@current_items.unit += params[:cart_item][:unit].to_i
+            @current_items.update(unit: @current_items.unit)
             redirect_to users_cart_items_path
 		end
 

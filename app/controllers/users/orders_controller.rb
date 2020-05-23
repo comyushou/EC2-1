@@ -26,7 +26,6 @@ class Users::OrdersController < ApplicationController
 		@cart_items = current_user.cart_items
 	end
 
-
 	def complete
 	end
 

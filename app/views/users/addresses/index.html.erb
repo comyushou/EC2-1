@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container address_container">
 		<h2>配送先登録/一覧</h2>
 
 		<%= form_for @address, url: users_addresses_path do |f| %>
 
-			<table border="0" width="800" height="100">
+			<table>
 				<div class="form-group">
 					<tr>
-						<th width="40%">郵便番号（ハイフンなし）</th>
+						<th>郵便番号（ハイフンなし）</th>
 						<td>
 							<%= f.text_field :postal_code %>
 						</td>
@@ -27,20 +27,20 @@
 							<%= f.text_field :name %>
 						</td>
 						<td>
-							<%= f.submit "登録する" %>
+							<%= f.submit "登録する", class: "btn-sm btn-success" %>
 						</td>
 					</tr>
 				</div>
 			</table>
 		<% end %>
-		<table class="table address">
-			<table border="1" width="700" height="200">
+		<table>
+			<table>
 				<thead>
 					<tr>
-						<th width="10%" bgcolor="#EEEEEE">郵便番号</th>
-						<th width="45%" bgcolor="#EEEEEE">住所</th>
-						<th width="20%" bgcolor="#EEEEEE">宛名</th>
-						<th width="25%" bgcolor="#EEEEEE">  </th>
+						<th>郵便番号</th>
+						<th>住所</th>
+						<th>宛名</th>
+						<th>  </th>
 					</tr>
 				</thead>
 				<% @addresses.each do |address| %>
