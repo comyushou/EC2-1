@@ -2,31 +2,33 @@
 <span class="order-history-headline">注文情報一覧</span><br>
 <table class="order-history">
 	<thead>
-		<tr>
-			<th class="create">注文日</th>
-			<th class="user">配送先</th>
-			<th class="status">注文商品</th>
-			<th class="price">支払金額</th>
-			<th class="status">ステータス</th>
-			<th class="show">注文詳細</th>
+		<tr class="tr-box">
+			<th class="create th-box">注文日</th>
+			<th class="user th-box">配送先</th>
+			<th class="status th-box">注文商品</th>
+			<th class="price th-box">支払金額</th>
+			<th class="status th-box">ステータス</th>
+			<th class="show-page th-box">注文詳細</th>
 		</tr>
 	</thead>
 	<tbody>
+		<tr class="tr-box">
 		<% @orders.each do |order| %>
-			<td class="history-create"><%= order.create_at('%Y/%m/%d') %></td>
-			<td class="history-user"><%= order.postal_code %><br>
+			<td class="history-create td-box"><%= order.create_at('%Y/%m/%d') %></td>
+			<td class="history-user td-box"><%= order.postal_code %><br>
 				<%= order.address %><br>
 				<%= order.family_name %><%= order.first_name %>
 			</td>
-			<td class="history-status"><%= order.order_status %></td>
-			<td class="price"><%= order.billing_amount.to_i + 800 %></td>
+			<td class="history-status td-box"><%= order.order_status %></td>
+			<td class="price td-box"><%= order.billing_amount.to_i + 800 %></td>
 			<!-- orderの中でorderにアソシエーションしているorder_itemを回す -->
 			<% order.order_items.each do |order_item| %>
 					<td><%= order_item.item.name %></td>
 			<% end %>
-			<td class="history-show"><%= link_to '表示する', user_order_path(order) %>
+			<td class="history-show td-box"><%= link_to '表示する', user_order_path(order) %>
 			</td>
 		<% end %>
+	</tr>
 	</tbody>
 </table>
 </div>

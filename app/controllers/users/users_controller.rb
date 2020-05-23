@@ -19,9 +19,6 @@ class Users::UsersController < ApplicationController
 		end
 	end
 
-	def user_params
-		params.require(:user).permit(:family_name, :first_name, :kana_family_name, :kana_first_name, :postal_code, :phone_number, :address, )
-	end
 	def leave
 	end
 
@@ -31,8 +28,15 @@ class Users::UsersController < ApplicationController
 		redirect_to users_root_path
 	end
 
+	private
+
+	def user_params
+		params.require(:user).permit(:family_name, :first_name, :kana_family_name, :kana_first_name, :postal_code, :phone_number, :address, :email)
+	end
+	
+
 	def screen_user
-		if params[:id].to_i != current_user.id
+		unless  current_user
 		   redirect_to users_root_path
 		end
 	end

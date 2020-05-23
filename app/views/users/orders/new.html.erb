@@ -1,6 +1,6 @@
 <h2>注文情報入力</h2>
 
-<%= form_for @order, url: users_orders_path do |f| %>
+<%= form_for @order, url: users_orders_path, method: :get do |f| %>
 
 	<!-- 支払い方法 -->
 	<h2>支払い方法</h2>
@@ -27,7 +27,7 @@
 			<%= f.collection_select :user_id, current_user.address, :id, full_address %><br>
 			<%= current_user.address %>
 			<label>
-			<%= f.radio_button_tag("3", "new_user_address") %>新しいお届け先</label>
+			<%= f.radio_button_tag("select_button", "new_user_address") %>新しいお届け先</label>
 			<%= f.field_for(@new_address) do |address| %>
 			<p>郵便番号
 				<%= address.text_field :postal_code %><span>ハイフンなし</span>
@@ -36,7 +36,7 @@
 				<%= address.text_field :address %>
 			</p>
 			<p>宛名
-				<%= naddress.text_field :address_name %>
+				<%= address.text_field :address_name %>
 			</p>
 			<% end %>
 			<%= f.submit "確認画面へ進む" %>

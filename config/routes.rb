@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     delete 'cart_items' => 'cart_items#destroy_cart', as: 'destroy_cart'  #全削除はIDがいらない
   	delete 'cart_items/:id/items/:id' => 'cart_items#destroy_part'
   	resources :orders, only: [:new, :create]
-  	post 'orders/confirm' => 'orders#confirm'
+  	get 'orders/confirm' => 'orders#confirm'
   	get 'orders/complete' => 'orders#complete'
   	get 'mypage' => 'users#show'
     patch 'mypage' => 'users#update'
