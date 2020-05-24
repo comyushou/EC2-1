@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.clearfix {
+	content: "";
+	display: block;
+	clear: both;
+}
+
 .item_container {
 	margin-top: 100px;
 }
@@ -16,4 +22,27 @@
 
 .item_price {
 	font-size: 20px;
+}
+
+.item_box {
+	width: 1000px;
+	padding: 30px 0 90px 0;
+	margin: 0 auto;
+}
+
+.item-image {
+	float: left;
+	width: 250px;
+	height: 280px;
+	margin: 10px 10px 0 0;
+	background-size: cover;
+	background-position: center;
+}
+
+.rrr {
+	padding-left: 100px;
+}
+
+.row_item_show {
+	margin-bottom: 50px;
 }

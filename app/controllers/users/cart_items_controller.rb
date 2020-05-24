@@ -8,6 +8,7 @@ class Users::CartItemsController < ApplicationController
 	def update
 		@cart_item = CartItem.find(params[:id])   #非同期通信のfrom_withの時はredirectはいらない。
 		@cart_item.update(cart_item_params)
+		redirect_to users_cart_items_path
 	end
 
 	def create

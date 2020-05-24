@@ -12,7 +12,7 @@ class Users::ItemsController < ApplicationController
 		else
 		# genre_idがない時は全表示
 			@genres = Genre.all
-			@items = Item.all
+			@items = Item.page(params[:page]).reverse_order
 			@number = @items.count
 			@name = "商品"
 
@@ -22,7 +22,6 @@ class Users::ItemsController < ApplicationController
 	def show
 		@genres = Genre.all
 		@item = Item.find(params[:id])
-		#@genres = Genre.where(is_status: true) ＃使わないかも
 		@cart = @item.cart_items.build
 	end
 

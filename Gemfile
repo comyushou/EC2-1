@@ -76,3 +76,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'pry-byebug'
+
+gem 'kaminari','~> 1.1.1'
