@@ -1,7 +1,8 @@
 class Users::HomeController < ApplicationController
 	def top
 		@genres = Genre.all
-		@items = Item.offset(rand(Item.count)).first(4)
+		batch_size = 4
+        @items = Item.offset(rand(Item.count-batch_size)).first(batch_size)
 	end
 	def about
 	end
