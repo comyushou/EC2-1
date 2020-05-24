@@ -14,6 +14,8 @@ module EC21
     
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
 
+    # config.i18n.default_locale = :ja 日本語にする場合は使ってください。
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

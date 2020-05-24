@@ -6,14 +6,15 @@ class Users::AddressesController < ApplicationController
 		@address = Address.new
 		@addresses = Address.all
 	end
+
 	def create
-		@address = Address.find_by(user_id: current_user.id)
-		@user = User.find(current_user.id)
 		@address = Address.new(address_params)
 		@address.user_id = current_user.id
-		if
-			@address.save
-			redirect_to request.referer #１つ前のURLに戻る
+		if @address.save
+		   redirect_to request.referer #１つ前のURLに戻る
+		else
+			@addresses = Address.all
+			render :index
 		end
 	end
 

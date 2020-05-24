@@ -15,7 +15,7 @@
       ジャンル <%= f.text_field :name %>
 	    <label><%= f.radio_button :is_status, "true" %>有効</label>
 	    <lavel><%= f.radio_button :is_status, "false" %>無効</lavel>
-      <span style="margin-left:15px;"><%= f.submit "追加",class:"btn btn-warning btn" %></span>
+      <span style="margin-left:15px;"><%= f.submit "追加",class:"btn btn-primary btn" %></span>
     <% end %>
 
 
@@ -39,7 +39,7 @@
                 無効
               <% end %>
           </td>
-          <td><%= link_to "編集する",edit_admins_genre_path(genre.id),class:"btn btn-warning btn-sm" %></td>
+          <td><%= link_to "編集する",edit_admins_genre_path(genre.id),class:"btn btn-primary btn-sm" %></td>
     		</tr>
     		<% end %>
 
