@@ -1,28 +1,35 @@
 <div class="container address_container">
+	<div class="row">
+		<span class="l">配送先編集</span><br>
+	</div>
 	<!-- 編集フォーム　-->
 	<%= form_for @address, url: users_address_path, method: :patch do |f|%>
-		<table>
-			<tr>
-				<th>郵便番号（ハイフンなし）</th>
-				<td>
-					<%= f.text_field :postal_code %>
-				</td>
-			</tr>
-			<tr>
-				<th>住所</th>
-				<td>
-					<%= f.text_field :address %>
-				</td>
-			</tr>
-			<tr>
-				<th>宛名</th>
-				<td>
-					<%= f.text_field :name %>
-				</td>
-				<td>
-					<%= f.submit "編集する" %>
-				</td>
-			</tr>
-		</table>
+	<div class="row code">
+			<div class="col-md-2">郵便番号(ハイフンなし)</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6 code">
+				<%= f.text_field :postal_code %>
+			</div>
+	</div>
+	<div class="row address">
+			<div class="col-md-2">住所</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<%= f.text_field :address %>
+			</div>
+	</div>
+	<div class="row name">
+			<div class="col-md-2">宛名</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<%= f.text_field :name %>
+			</div>
+	</div>
+	<div class="row name">
+			<div class="col-md-2"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-1">
+				<%= f.submit "編集する", class: "btn btn-primary" %>
+			</div>
 	<% end %>
 </div>

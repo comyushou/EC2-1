@@ -15,6 +15,9 @@
 .main-image{
 	position: relative;
 }
+.main-image, img {
+	margin-bottom: 20px;
+}
 .main-text {
 	position: absolute;
 	top: 250px;
@@ -22,15 +25,25 @@
 	letter-spacing: 8px;
 }
 .product-box {
-	position: relative;
-	float: left;
-	margin-right: 5px;
-	width: 25%;
+	margin-bottom: 50px;
 }
+.product-image {
+	float: left;
+	display: inline-block;
+	width: 22%;
+	margin-right: 5px;
+}
+
 .product-comment {
-	position: absolute;
+	top: 80px;
 	left: 0;
-	bottom: 0;
+	font-size: 14px;
+	padding-top: 10px;
+}
+.user-item-index {
+	margin-left: 620px;
+	font-size: 14px;
+	color: #331a00;
 }
 .about-container {
 	text-align: center;

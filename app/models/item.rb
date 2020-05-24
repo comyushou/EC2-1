@@ -8,6 +8,7 @@ class Item < ApplicationRecord
 
 	validates :genre_id,:name,:price,:picture,:description, presence: true
 	validates :is_sale_status, inclusion: { in: [true,false]}
+	12345678.to_s(:delimited)
 
 end
 
