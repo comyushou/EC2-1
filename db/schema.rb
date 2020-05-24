@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2020_05_17_140351) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "name", null: false
-    t.boolean "is_user_address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
