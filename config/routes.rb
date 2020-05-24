@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     delete 'cart_items' => 'cart_items#destroy_cart', as: 'destroy_cart'  #全削除はIDがいらない
   	delete 'cart_items/:id/items/:id' => 'cart_items#destroy_part'
   	resources :orders, only: [:new, :create]
-  	get 'orders/confirm' => 'orders#confirm'
+  	post 'orders/confirm' => 'orders#confirm'
   	get 'orders/complete' => 'orders#complete'
   	get 'mypage' => 'users#show'
     patch 'mypage' => 'users#update'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   	get 'leave' => 'users#leave'
   	delete 'hide' => 'users#hide'
   	get 'order_items' => 'orders#index'
-  	get 'order_items/:id' => 'order#show'
+  	get 'order_items/:id' => 'orders#show', as: 'order_item'
   	patch '' => 'users/users#update'
   	resources :addresses, only: [:index, :create, :edit, :update,:destroy]
   end
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   	resources :users, only: [:index, :show, :edit]
     patch 'users/:id/edit' => 'users#update'
   	resources :orders, only: [:index, :show, :update]
-  	patch 'order_items/:id' => 'order_items#update'
+  	patch 'order_items/:id' => 'order_items#update', as: 'order_item'
   end
   if Rails.env.development?
      mount LetterOpenerWeb::Engine, at: '/letter_opener'

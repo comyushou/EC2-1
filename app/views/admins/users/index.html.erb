@@ -1,9 +1,8 @@
 <div class="container admin-users-container">
 	<span class="admin-users-headline">会員一覧</span>
-		<div class="row align-items-center">
-			<div class="col-md-10 users-index">
+		<div class="align-items-center">
 			<table class="table admin-users-table">
-				<thead>
+				<thead class="column-head">
 					<tr class="row">
 						<th>会員ID</th>
 						<th>氏名</th>
@@ -13,7 +12,7 @@
 				</thead>
 
 				<% @users.each do |user| %>
-				<tbody class = "column">
+				<tbody class="column-body">
 					<tr>
 						<td></td>
 						<td>

@@ -1,36 +1,36 @@
-<h2>注文情報入力</h2>
+<div class="container new-container">
+<span class="order-history-headline">注文情報入力</span><br>
 
-<%= form_for @order, url: users_orders_confirm_path, method: :get do |f| %>
+<%= form_for @order, url: users_orders_confirm_path do |f| %>
 
 	<!-- 支払い方法 -->
-	<h2>支払い方法</h2>
+	<h4>支払い方法</h4>
 		<p>
 			<label>
-				<%= f.radio_button :is_payment_method, :クレジットカード, checked: "checked" %>クレジットカード</label>
+				<%= f.radio_button :is_payment_method, :クレジットカード, checked: "checked" %><span class="text-box">クレジットカード</span></label>
 		</p>
 		<p>
-			<label><%= f.radio_button :is_payment_method, :銀行振り込み %>銀行振り込み</label>
+			<label><%= f.radio_button :is_payment_method, :銀行振り込み %><span class="text-box">銀行振り込み</span></label>
 		</p>
-	<h2>お届け先</h2>
+	<h4>お届け先</h4>
 		<label>
-			<%= radio_button_tag("select_button", "user_address") %>
+			<%= radio_button_tag("select_button", "user_address") %><span class="text-box">ご自身の住所</span>
 		</label>
 		<P>郵便番号<span>
-			<%= current_user.postal_code %>
-			<%= current_user.address %>
+			<%= current_user.postal_code %><br>
+			<%= current_user.address %><br>
 			<%= current_user.family_name %>
 			<%= current_user.first_name %></span>
 		</P>
 		<label>
-			<%= radio_button_tag("select_button", "addresses_address") %>登録済み住所から選択</label><br>
+			<%= radio_button_tag("select_button", "addresses_address") %><span class="text-box">登録済み住所から選択</span></label><br>
 			<%= f.label :user_id %>
-			<%= select_tag :user_id,options_for_select(Address.where(user_id: current_user.id).map { |e| e.postal_code }) %><br>
-			<%= current_user.address %>
+			<%= select_tag :user_id,options_for_select(Address.where(user_id: current_user.id).map { |e| e.address }) %><br>
 			<label>
-			<%= radio_button_tag("select_button", "new_user_address") %>新しいお届け先</label>
+			<%= radio_button_tag("select_button", "new_user_address") %><span class="text-box">新しいお届け先</span></label>
 			<%= f.fields_for(@new_address) do |address| %>
-			<p>郵便番号
-				<%= address.text_field :postal_code %><span>ハイフンなし</span>
+			<p>郵便番号(ハイフンなし)
+				<%= address.text_field :postal_code %>
 			</p>
 			<p>住所
 				<%= address.text_field :address %>
@@ -39,5 +39,6 @@
 				<%= address.text_field :name %>
 			</p>
 			<% end %>
-			<%= f.submit "確認画面へ進む" %>
+			<%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
 <% end %>
+</div>

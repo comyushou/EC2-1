@@ -4,6 +4,7 @@
 
 .cart_item_container {
 	margin-top: 100px;
+	margin-bottom: 100px;
 }
 
 .table_index {
@@ -35,10 +36,47 @@
 .dangerall {
 }
 
-.item-name {
+.useritem-image {
 	font-size: 20px;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+.useritem_name {
+	padding-left: 10px;
+}
+
+.a_a {
+	text-decoration: none;
+	color: #331a00;
 }
 
 .item_show {
 	background-color: #ffffff;
+}
+
+.row_a {
+}
+
+.row_d {
+	margin-top: 50px;
+}
+
+.row_top {
+	margin-bottom: 50px;
+}
+
+.col_d {
+	margin-left: 800px;
+}
+
+.cartname {
+	background-color: #f5f5f5;
+	font-size: 20px;
+	line-height: 30px;
+	padding: 5px;
+}
+
+.user_f {
+	padding-bottom: 30px;
 }

@@ -4,6 +4,8 @@ class Admins::OrderItemsController < ApplicationController
 		order_item = OrderItem.find(params[:id])
 		order_item.update(order_item_params)
 		redirect_to request.referer
+
+
 	end
 
 	private

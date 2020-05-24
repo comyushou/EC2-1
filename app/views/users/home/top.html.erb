@@ -23,8 +23,7 @@
 								<% end %>
 								<div class="product-comment">
 									<div class="product-name"><%= item.name %></div>
-									<div class="product-price"><% item_price　= item.price.to_i * 1.1 %>
-										<%= item.price.to_i %>
+									<div class="product-price"><%= (item.price.to_i * 1.1).round %>
 									</div>
 								</div>
 							</div>

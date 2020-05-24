@@ -1,16 +1,29 @@
 <div class="container item_container">
-	<h2><%= @name %>一覧全<%= @number %>件</h2>
-
-		<% @items.each do |item| %>
-			<% if item.genre.is_status == true %> <!--商品の有効なものだけを表示させる-->
-				<%= link_to users_item_path(item) do %>
-					<%= attachment_image_tag(item, :picture, :fill, 220, 180) %><br>
-					<%= item.name %>
-					<%= render 'price', item: item %>
-				<% end %>
-			<% end %>
-		<% end %>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render 'layouts/genreslist' %>
+		</div>
+		<div class="col-xs-9 rrr">
+			<h2><%= @name %>一覧全<%= @number %>件</h2>
+				<div class="item-box clearfix">
+					<% @items.each do |item| %>
+						<div class="item-image">
+							<% if item.is_sale_status == true %>
+							<% if item.genre.is_status == true %> <!--商品の有効なものだけを表示させる-->
+								<%= link_to users_item_path(item), class: "a_a" do %>
+									<%= attachment_image_tag(item, :picture, :fill, 200, 200) %><br>
+									<div class="product-code">
+										<%= item.name %><br>
+										<%= render 'price', item: item %>
+									</div>
+								<% end %>
+							<% end %>
+							<% end %>
+						</div>
+					<% end %>
+					<%= paginate @items %>
+				</div>
+		</div>
 	</div>
 </div>
-<%= render 'layouts/genreslist' %>
 

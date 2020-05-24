@@ -13,6 +13,7 @@ class Admins::OrdersController < ApplicationController
 		order = Order.find(params[:id])
 		order.update(order_params)
 		redirect_to request.referer
+
 	end
 
 	private
