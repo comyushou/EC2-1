@@ -1,14 +1,11 @@
 <div class="container">
 
-  <h4 style ="margin-bottom:30px;"><span style="background-color:#ffcc99">　ジャンル一覧：追加　</span></h4>
-
+  <h4 style ="margin-top:100px;margin-bottom:40px;margin-left:50px;"><span style="background-color:#ffcc99">　ジャンル一覧：追加　</span></h4>
 
   <% if @genre.errors.any? %>
-    <div style="wigth:100%">
   <% @genre.errors.full_messages.each do |message| %>
   <%= message %>⚠︎
   <% end %>
-    </div>
   <% end %>
 
 
@@ -16,11 +13,9 @@
 
     <%= form_for(@genre,url:admins_genres_path) do |f| %>
       ジャンル <%= f.text_field :name %>
-      <span class ="hako">
 	    <label><%= f.radio_button :is_status, "true" %>有効</label>
 	    <lavel><%= f.radio_button :is_status, "false" %>無効</lavel>
-      <%= f.submit "追加",class:"btn btn-warning btn" %>
-      </span>
+      <span style="margin-left:15px;"><%= f.submit "追加",class:"btn btn-warning btn" %></span>
     <% end %>
 
 

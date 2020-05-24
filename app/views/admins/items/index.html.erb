@@ -1,3 +1,43 @@
+
+<div class="container">
+
+  <h4 style ="margin-top:100px;margin-left:100px"><span style="background-color:#ffcc99">　商品一覧　</span></h4>
+
+    <%= link_to(new_admins_item_path, class: "plus_link") do %>
+      <div class ="itemnew">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+      </div>
+　　 <% end %>
+
+  <center>
+  <div class="row">
+
+  <div class ="itemtable">
+    <table class ="table">
+    	<thead>
+    		<tr class="active">
+    			<th>商品ID</th>
+    			<th>商品名</th>
+    			<th>税抜価格</th>
+    			<th>ジャンル</th>
+    			<th>ステータス</th>
+    		</tr>
+    	</thead>
+    	    <% @items.each do |item| %>
+    	    <tr>
+    	    	<td><%= item.id %></td>
+    	    	<td><%= link_to admins_item_path(item.id), class: "itemname" do %><span class="itemname"><%= item.name %></span><% end %></td>
+    	    	<td><%= item.price%></td>
+    	    	<td><%= item.genre.name%></td>
+    	    	<td><% if item.is_sale_status == true %>
+    	    		    販売中
+    	    		  <% else %>
+    	    		    販売停止中
+    	    		  <% end %>
+    	      </td>
+    	    </tr>
+    	    <% end %>
+=======
 <div class="container container-admin-order">  
   <span class="admin-order-item">商品一覧</span></br>
     <%= link_to(new_admins_item_path, class: "plus_link") do %>
@@ -32,5 +72,6 @@
           </tr>
         <% end %>
       </tbody>
+
     </table>
 </div>
