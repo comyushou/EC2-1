@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   	resources :users, only: [:index, :show, :edit]
     patch 'users/:id/edit' => 'users#update'
   	resources :orders, only: [:index, :show, :update]
-  	patch 'order_items/:id' => 'order_items#update'
+  	patch 'order_items/:id' => 'order_items#update', as: 'order_item'
   end
   if Rails.env.development?
      mount LetterOpenerWeb::Engine, at: '/letter_opener'
