@@ -2,7 +2,16 @@
       <div class="admin-login-head">
         <span class="admin-login-headline">管理者ログイン</span></br>
       </div>
+
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+            <div class ="adminboxbox" style="margin-top: 50px;">
+            <% if flash[:alert] %>
+            <%= flash[:alert] %>
+            <% end %>
+            </div>
+
+
           <div class="row align-items-center">
               <span class="col-md-4 left-col"><%= f.label :email, "メールアドレス" %></span>
               <span class="col-md-5"><%= f.email_field :email, size: "60x5", autofocus: true, autocomplete: "email", class: "email-form" %></span>
