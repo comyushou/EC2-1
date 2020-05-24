@@ -1,58 +1,71 @@
-<h1>注文情報</h1>
-<h3>注文情報</h3>
-<table class="order-box1">
-	<tr>
-		<th>注文日</th>
-		<th><%= @order.create_at.strftime('%Y/%m/%d') %></th>
-	</tr>
-	<tr>
-		<th>配送先</th>
-		<th>〒<%= @order.postal_code %><br>
-			<%= @order.address %><br>
-			<%= @order.family_name %><%= @order.first_name %>
-		</th>
-	</tr>
-	<tr>
-		<th>支払方法</th>
-		<th><%= @order.is_payment_method %></th>
-	</tr>
-	<tr>
-		<th>ステータス</th>
-		<th><%= @order.order_status %></th>
-	</tr>
-</table>
-<h3>請求情報</h3>
-<table class="order-box2">
-	<tr>
-		<th>商品合計</th>
-		<th><%= @order.billing_amount %></th>
-	</tr>
-	<tr>
-		<th>配送料</th>
-		<th><%= @order.postage %>円</th>
-	</tr>
-	<tr>
-		<th>ご請求金額</th>
-		<th><%= @order.billing_amount.to_i + @order.postage.to_i %>円</th>
-	</tr>
-</table>
-<table class="order-box3">
-	<thead>
-		<tr>
-			<th>商品</th>
-			<th>単価 (税込)</th>
-			<th>個数</th>
-			<th>小計</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @order_items.each do |order_item| %>
-			<tr>
-				<td><%= order_item.item.name %></td>
-				<td><%= order_item.price %></td>
-				<td><%= order_item.unit %></td>
-				<td><%= order_item.price.to_i * order_item.unit.to_i %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="container order-history-container">
+	<span class="order-history-headline">注文情報一覧</span><br>
+	<div class="row-history-show">
+		<div class="col-xs-5">
+			<span class="order-show-info">注文情報</span>
+				<table class="order-box1">
+					<tr class="box-tr">
+						<th class="th-box-left left-show three th-class">注文日</th>
+						<th class="th-box-right right-show th-class"><%= @order.created_at.strftime('%Y/%m/%d') %></th>
+					</tr>
+					<tr class="box-tr">
+						<th class="th-box-left left-show onet h-class">配送先</th>
+						<th class="th-box-right right-show th-class">〒<%= @order.postal_code %><br>
+							<%= @order.address %><br>
+							<%= @order.review_name %>
+						</th>
+					</tr>
+					<tr class="box-tr">
+						<th class="th-box-left left-show three th-class">支払方法</th>
+						<th class="th-box-right right-show th-class"><%= @order.is_payment_method %></th>
+					</tr>
+					<tr class="box-tr">
+						<th class="th-box-left left-show three th-class">ステータス</th>
+						<th class="th-box-right right-show th-class"><%= @order.order_status %></th>
+					</tr>
+				</table>
+		</div>
+		<div class="col-xs-3">
+			<span class="order-show-info">請求情報</span>
+			<table class="order-box2">
+				<tr class="box-tr">
+					<th class="th-box-left left-price th-class">商品合計</th>
+					<th class="th-box-right right-price"><%= @order.billing_amount %></th>
+				</tr>
+				<tr class="box-tr">
+					<th class="th-box-left left-price th-class">配送料</th>
+					<th class="th-box-right right-price"><%= @order.postage %>円</th>
+				</tr>
+				<tr class="box-tr">
+					<th class="th-box-left left-price th-class">ご請求金額</th>
+					<th class="th-box-right right-price"><%= @order.billing_amount.to_i + @order.postage.to_i %>円</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row-history-show">
+		<div class="col-xs-12">
+			<span class="order-show-info">注文内容</span>
+			<table class="order-box3">
+				<thead class="order-show-history">
+					<tr class="box-tr">
+						<th class="product-item th-class">商品</th>
+						<th class="yen th-class">単価 (税込)</th>
+						<th class="unit-box th-class">個数</th>
+						<th class="price-box th-class">小計</th>
+					</tr>
+				</thead>
+				<tbody class="order-show-menu">
+					<% @order_items.each do |order_item| %>
+						<tr class="box-tr">
+							<td class="product-item th-class"><%= order_item.item.name %></td>
+							<td class="yen th-class"><%= (order_item.price * 1.1).floor %></td>
+							<td class="unit-box th-class"><%= order_item.unit %></td>
+							<td class="price-box th-class"><%= (order_item.price * 1.1).floor * order_item.unit.to_i %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
