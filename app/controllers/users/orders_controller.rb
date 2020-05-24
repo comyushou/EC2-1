@@ -27,6 +27,9 @@ class Users::OrdersController < ApplicationController
   	    @order_item.save
   	    end
 
+  	    @cart_items = current_user.cart_items
+  	    @cart_items.destroy_all  #購入完了した時点でカートを空にする
+
 
 
 	   else
