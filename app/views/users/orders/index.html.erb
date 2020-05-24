@@ -17,7 +17,7 @@
 			<td class="history-create td-box"><%= order.created_at.strftime('%Y/%m/%d') %></td>
 			<td class="history-user td-box"><%= order.postal_code %><br>
 				<%= order.address %><br>
-				<%= order.family_name %><%= order.first_name %>
+				<%= order.review_name %>
 			</td>
 			<td class="history-status td-box"><%= order.order_status %></td>
 			<td class="price td-box"><%= order.billing_amount.to_i + 800 %></td>

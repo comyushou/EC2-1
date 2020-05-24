@@ -18,16 +18,6 @@ class Order < ApplicationRecord
 	  totalunit
 	end
 
-	def billing_amount
-		# この注文(selfのorder)に紐づく注文商品(order_item)全ての小計の合計 + 送料
-		self.order_items.each do |order_item|
 
-	end
-
-	def hoge
-		self.id
-	end
-
-end
 
 end
