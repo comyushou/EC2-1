@@ -1,16 +1,10 @@
-<div class = "container admin-top-container">
-	<span class = "admin-top-headline">管理者画面</span>
-		<div class="row align-items-center">
-			<div class="col-md-8">
-				<table>
-					<tbody>
-						<tr>
-							<td><h3>本日の注文件数</h3></td>
-							<td><h3 class = "order-count"><%= link_to "#{@orders.count}", admins_orders_path %></h3></td>
-							<td><h3>件</h3></td>
-						</tr>
-					</tbody>
-				</table>
+<div class ="container admin-top-container">
+	<span class ="admin-top-headline">管理者画面</span>
+		<div class="row">
+			<div class="col-md-8 admin-top-content">
+				<span>本日の注文件数</span>
+					<span class="admin-top-link"><%= link_to "#{@orders.count}", admins_orders_path %></span>
+						<span>件</span>
 			</div>
 		</div>
 </div>
