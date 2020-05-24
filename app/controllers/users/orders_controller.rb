@@ -48,7 +48,7 @@ class Users::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-	    @order_items = OrderItems.where(order_id: params[:id])
+	    @order_items = OrderItem.where(order_id: params[:id])
 	end
 
 	def confirm

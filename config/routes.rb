@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   	get 'leave' => 'users#leave'
   	delete 'hide' => 'users#hide'
   	get 'order_items' => 'orders#index'
-  	get 'order_items/:id' => 'order#show'
+  	get 'order_items/:id' => 'orders#show', as: 'order_item'
   	patch '' => 'users/users#update'
   	resources :addresses, only: [:index, :create, :edit, :update,:destroy]
   end
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   	resources :users, only: [:index, :show, :edit]
     patch 'users/:id/edit' => 'users#update'
   	resources :orders, only: [:index, :show, :update]
-  	patch 'order_items/:id' => 'order_items#update'
+  	patch 'order_items/:id' => 'order_items#update', as: 'order_item'
   end
   if Rails.env.development?
      mount LetterOpenerWeb::Engine, at: '/letter_opener'
