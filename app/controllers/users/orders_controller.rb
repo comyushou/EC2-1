@@ -10,7 +10,7 @@ class Users::OrdersController < ApplicationController
 		if current_user.orders.where(user_id: params[:order][:item_id]).empty?
 		@order = Order.new(order_params)
 		@order.user_id = current_user.id
-  	    @order.save # < order.id == 4 user_id: current_user.id, postal_code: ...>
+  	    @order.save
 
   	    # カートアイテムの中身をオーダーアイテムの中に入れてあげる必要があるため、カートアイテムをeachで回す。
   	    current_user.cart_items.each do |f|
