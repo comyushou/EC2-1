@@ -3,7 +3,7 @@ class Users::ItemsController < ApplicationController
 		# indexのurlにジャンルidがある時を記述する
 		if params[:genre_id]
 			# @itemsは、ジャンルのジャンルidを引っ張って来る
-			@items = Item.where(genre_id: params[:genre_id])
+			@items = Item.where(genre_id: params[:genre_id], is_sale_status: true).page(params[:page]).reverse_order
 			@genres = Genre.all
 			@number = @items.count
 			# ジャンルnameを定義するため、ジャンルidを引っ張ってきて@genreに代入する。
@@ -12,7 +12,7 @@ class Users::ItemsController < ApplicationController
 		else
 		# genre_idがない時は全表示
 			@genres = Genre.all
-			@items = Item.page(params[:page]).reverse_order
+			@items = Item.where(is_sale_status: true).page(params[:page]).reverse_order  #販売ステータスが有効になっているものだけ表示
 			@number = @items.count
 			@name = "商品"
 
