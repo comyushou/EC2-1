@@ -26,7 +26,7 @@
 			<!-- @subtotal = [１つ目の商品の小計, ] -->
 
 <% end %>
-<% total = @subtotal.sum %>
+<% @total = @subtotal.sum %>
 	 <table>
 	 		<tr>
 	 			<th>送料</th>
@@ -35,12 +35,12 @@
 
 	 		<tr>
 	 			<th>商品合計</th>
-	 			<td><%= total %></td>
+	 			<td><%= @total %></td>
 	 		</tr>
 
 	 		<tr>
 	 			<th>請求金額</th>
-	 			<td><%= total + 800 %></td>
+	 			<td><%= @total + 800 %></td>
 	 		</tr>
 	 </table>
 
@@ -61,7 +61,7 @@
         <%= f.hidden_field :address, :value => @order.address %>
         <%= f.hidden_field :review_name, :value => @order.review_name %>
         <%= f.hidden_field :order_status, :value => '入金待ち' %>
-        <%= f.hidden_field :billing_amount, :value =>  @subtotal %>
+        <%= f.hidden_field :billing_amount, :value =>  @total %>
         <%= f.hidden_field :postage, :value => 800 %>
 
         

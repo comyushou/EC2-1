@@ -14,7 +14,7 @@
 		</p>
 	<h4>お届け先</h4>
 		<label class="pay-info">
-			<%= radio_button_tag("select_button", "user_address") %><span class="text-box">ご自身の住所</span>
+			<%= radio_button_tag("select_button", "user_address", checked: "checked") %><span class="text-box">ご自身の住所</span>
 		</label>
 		<p class="user-info">郵便番号<span>
 			<%= current_user.postal_code %><br>
