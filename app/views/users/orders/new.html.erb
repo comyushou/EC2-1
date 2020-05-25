@@ -25,7 +25,7 @@
 		<label>
 			<%= radio_button_tag("select_button", "addresses_address") %><span class="text-box">登録済み住所から選択</span></label><br>
 			<%= f.label :user_id %>
-			<%= select_tag :user_id,options_for_select(Address.where(user_id: current_user.id).map { |e| e.address }) %><br>
+			<%= select_tag :user_id,options_for_select(Address.where(user_id: current_user.id).map { |e| e.postal_code }) %><br>
 			<label>
 			<%= radio_button_tag("select_button", "new_user_address") %><span class="text-box">新しいお届け先</span></label>
 			<%= f.fields_for(@new_address) do |address| %>
