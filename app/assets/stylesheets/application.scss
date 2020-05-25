@@ -61,7 +61,7 @@ body {
 	margin-top: 180px;
 }
 
-.sign-up-container, .user-login-container, password-container, .leave-container, .mypage-container, .item_container, .top-container, .about-container, .cart_item_container, .address_container, .admin-top-container, .admin-login-container, .admin-users-container, .admin-container, .admin-edit-container, .order-history-container, .comfirm-container, .new-container {
+.sign-up-container, .user-login-container, password-container, .leave-container, .mypage-container, .item_container, .top-container, .about-container, .cart_item_container, .address_container, .admin-top-container, .admin-login-container, .admin-users-container, .admin-container, .admin-edit-container, .order-history-container, .comfirm-container, .new-container, .password-container {
 	height: 800px;
 }
 .user-login-container {
@@ -106,7 +106,7 @@ body {
 .field-password {
 	margin-top: 18px;
 }
-.email-form, .password-form, .family_name, .first_name, .kana_family_name, .kana_first_name, .email, .postal_code, .address, .phone_number, .password, .password_confirmation {
+.email-form, .password-form, .family_name, .first_name, .kana_family_name, .kana_first_name, .email, .postal_code, .address-code, .phone_number, .password, .password_confirmation {
 	border-radius: 5px;
 }
 
