@@ -26,14 +26,17 @@ class Users::OrdersController < ApplicationController
 
   	    @order_item.save
 		end
+
 	   else
 		@order = current_user.orders.find_by(user_id:params[:order][:item_id])
 		@order.update(unit: params[:order][:unit].to_i + @order.unit)
         end
-        redirect_to users_orders_complete_path
 
   	    @cart_items = current_user.cart_items
   	    @cart_items.destroy_all  #購入完了した時点でカートを空にする
+
+        redirect_to users_orders_complete_path
+
 
 	end
 
