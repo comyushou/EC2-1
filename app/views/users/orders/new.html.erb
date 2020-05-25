@@ -24,9 +24,11 @@
 		</P>
 		<label class="pay-info">
 			<%= radio_button_tag("select_button", "addresses_address") %><span class="text-box">登録済み住所から選択</span></label><br>
+
 			<span class="user-info"><%= f.label :user_id %>
 			<%= select_tag :user_id,options_for_select(Address.where(user_id: current_user.id).map { |e| e.address }), style: "width: 200px;" %></span><br><br>
 			<label class="pay-info">
+
 			<%= radio_button_tag("select_button", "new_user_address") %><span class="text-box">新しいお届け先</span></label>
 			<%= f.fields_for(@new_address) do |address| %>
 			<p class="user-info">郵便番号(ハイフンなし)
