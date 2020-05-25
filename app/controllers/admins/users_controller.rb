@@ -1,22 +1,29 @@
 class Admins::UsersController < ApplicationController
 	before_action :authenticate_admin!
 	def index
-		@users = User.page(params[:page]).per(10)
+		# with_deletedで論理削除されているものも表示できる。
+		@users = User.with_deleted.page(params[:page]).per(10)
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = User.with_deleted.find(params[:id])
 	end
 
 	def edit
-		@user = User.find(params[:id])
+		@user = User.with_deleted.find(params[:id])
+
+
 	end
 
 	def update
-		@user = User.find(params[:id])
-		if @user.update(user_params)
-			redirect_to	admins_user_path
+		@user = User.with_deleted.find(params[:id])
+		@user.update(user_params)
+		if @user.is_active == "true" #ステータスをtrueにしたら論理削除したものを復活させる
+			@user.restore #論理削除から元に戻す
+		else
+			@user.destroy #無効にしたら論理削除
 		end
+		redirect_to	admins_user_path
 	end
 
 	private

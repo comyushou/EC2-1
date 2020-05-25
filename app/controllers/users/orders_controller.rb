@@ -35,6 +35,7 @@ class Users::OrdersController < ApplicationController
   	    @cart_items = current_user.cart_items
   	    @cart_items.destroy_all  #購入完了した時点でカートを空にする
 
+
         redirect_to users_orders_complete_path
 
 
