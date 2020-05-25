@@ -31,8 +31,7 @@ class Users::ItemsController < ApplicationController
 	end
 
 
-
-
-
-
 end
+
+
+#メモ　なんでジャンルで分けるのか、紐づいているから、でも何で/showもだけど何でいちいち.allで持ってきてる？

@@ -7,3 +7,5 @@ class Users::HomeController < ApplicationController
 	def about
 	end
 end
+
+#ofset 指定した位置からレコードを取得 randランダム取得
