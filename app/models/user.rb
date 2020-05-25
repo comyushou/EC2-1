@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :cart_items
 
+
 validates :family_name,:first_name,:kana_family_name,:kana_first_name,:postal_code,:address,:phone_number, presence: true
 
 end

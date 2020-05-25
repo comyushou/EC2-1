@@ -23,7 +23,7 @@ class Users::UsersController < ApplicationController
 
 	def hide
 		@user = current_user
-		@user.destroy
+		@user.update(is_active: false)
 		redirect_to users_root_path
 	end
 
