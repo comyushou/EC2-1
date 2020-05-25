@@ -14,6 +14,8 @@ module EC21
     
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
 
+    config.time_zone = 'Tokyo'
+
     # config.i18n.default_locale = :ja 日本語にする場合は使ってください。
 
 

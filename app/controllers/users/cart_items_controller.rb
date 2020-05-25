@@ -14,12 +14,12 @@ class Users::CartItemsController < ApplicationController
 	def create
 		@cart_item = CartItem.new(cart_item_params)
 		@cart_item.user_id = current_user.id
-		#@cart_items =  CartItem.find(params[:id])　#findの検索条件はidのみ、複数のidを取得出来る
+		#@cart_items =  CartItem.find(params[:id]) #findの検索条件はidのみ、複数のidを取得出来る
 		#@cart_items = CartItem.find_by(item_id: @cart_item.item_id,user_id: @cart_item.user_id)
 		##find_byはnilを返すというデメリットがありid以外でも検索出来るが、取得できる値は、最初にマッチした１件のみ。   #binding.pry
 		@cart_item.item_id = params[:item_id]
 		@current_items = CartItem.find_by(item_id: @cart_item.item_id,user_id: @cart_item.user_id)
-		if @current_items.blank?
+		if @current_items.blank? #空か存在しないか？
 			@cart_item.save
 			redirect_to users_cart_items_path
 		else
