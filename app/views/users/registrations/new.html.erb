@@ -4,8 +4,6 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-    <%= f.hidden_field :is_active, :value => false %> 
-
     <div class="row sign-up-row top-row">
       <div class="col-md-2">名前</div>
       <div class="col-md-1">
