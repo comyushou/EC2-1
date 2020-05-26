@@ -1,10 +1,10 @@
 class Users::CartItemsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_user
+	before_action :total_price, only:[:index]
 
 
 	def index
-		@number = 0
 		@cart_items = @user.cart_items.all
 	end
 
@@ -12,6 +12,8 @@ class Users::CartItemsController < ApplicationController
 		@cart_item = CartItem.find(params[:id])   #非同期通信のfrom_withの時はredirectはいらない。
 		@cart_item.update(cart_item_params)
 		@item_price = @cart_item.item.price * 1.1
+
+		total_price
 	end
 
 	def create
@@ -53,6 +55,14 @@ class Users::CartItemsController < ApplicationController
 
 	def set_user
 		@user = current_user
+	end
+
+	def total_price
+		@cart_total = []  #配列作るもの
+		current_user.cart_items.each do |cart_item|
+			@cart_total.push(cart_item.item.price.to_i * cart_item.unit)
+		end	
+		@total = @cart_total.sum　#sumは配列のそれぞれの要素を足し合わせる
 	end
 
 		
