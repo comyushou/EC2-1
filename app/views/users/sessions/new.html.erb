@@ -5,6 +5,7 @@
             <% if flash[:alert] %>
             <%= flash[:alert] %>
             <% end %>
+            <%= flash[:error] %>
             </div>
     <!--  login入力form -->
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
