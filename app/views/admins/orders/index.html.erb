@@ -17,6 +17,7 @@
 
   	<% @orders.each do |order| %>
   	    <tr>
+          <!-- %Y 西暦を表す数, %m 月を表す数字(01-12), %d 日(01-31), %H 24時間制の時(00-23), %M 分(00-59), %S 秒(00-60) (60はうるう秒)  [strftimeで検索] -->
   	    	<td><%= link_to admins_order_path(order.id), class: "ordername" do %><span class="ordername"><%= order.created_at.strftime('%Y-%m-%d %H:%M:%S') %></span><% end %></td>
 
 

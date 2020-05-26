@@ -24,7 +24,11 @@ class Users::UsersController < ApplicationController
 
 	def hide
 		@user = current_user
+		#is_activeカラムにフラグを立てる(defaultはtrue)
 		@user.update(is_active: false)
+
+		#ログアウトさせる
+
 		reset_session
 		redirect_to users_root_path
 	end
