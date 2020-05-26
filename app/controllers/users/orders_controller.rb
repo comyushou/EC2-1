@@ -8,28 +8,28 @@ class Users::OrdersController < ApplicationController
 
 	def create
 		if current_user.orders.where(user_id: params[:order][:item_id]).empty?
-		@order = Order.new(order_params)
-		@order.user_id = current_user.id
-  	    @order.save
+			@order = Order.new(order_params)
+			@order.user_id = current_user.id
+	  	    @order.save
 
-  	    # カートアイテムの中身をオーダーアイテムの中に入れてあげる必要があるため、カートアイテムをeachで回す。
-  	    current_user.cart_items.each do |f|
-		@order_item = OrderItem.new # < order_item item_id: ,order_id: ,production_sttus: ,..>
+	  	    # カートアイテムの中身をオーダーアイテムの中に入れてあげる必要があるため、カートアイテムをeachで回す。
+	  	    current_user.cart_items.each do |f|
+				@order_item = OrderItem.new # < order_item item_id: ,order_id: ,production_sttus: ,..>
 
-  	    # 1回目 f == < cart_item user_id: current_user.id,item_id: 3, >
-  	    # 2回目 f == < cart_item user_id: current_user.id,item_id: 5, >
-  	    @order_item.item_id = f.item_id # < order_item item_id: 3,order_id: ,production_sttus: ,..>
-  	    @order_item.order_id = @order.id # < order_item item_id: 3,order_id: 4,production_sttus: "着手不可",..>
-  	    @order_item.production_status = "着手不可"
-  	    @order_item.unit = f.unit
-  	    @order_item.price = f.item.price
+		  	    # 1回目 f == < cart_item user_id: current_user.id,item_id: 3, >
+		  	    # 2回目 f == < cart_item user_id: current_user.id,item_id: 5, >
+		  	    @order_item.item_id = f.item_id # < order_item item_id: 3,order_id: ,production_sttus: ,..>
+		  	    @order_item.order_id = @order.id # < order_item item_id: 3,order_id: 4,production_sttus: "着手不可",..>
+		  	    @order_item.production_status = "着手不可"
+		  	    @order_item.unit = f.unit
+		  	    @order_item.price = f.item.price
 
-  	    @order_item.save
-		end
+		  	    @order_item.save
+			end
 
-	   else
-		@order = current_user.orders.find_by(user_id:params[:order][:item_id])
-		@order.update(unit: params[:order][:unit].to_i + @order.unit)
+		  else
+			@order = current_user.orders.find_by(user_id:params[:order][:item_id])
+			@order.update(unit: params[:order][:unit].to_i + @order.unit)
         end
 
   	    @cart_items = current_user.cart_items

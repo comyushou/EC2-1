@@ -1,15 +1,17 @@
 class Users::CartItemsController < ApplicationController
-	before_action :authenticate_user! 
+	before_action :authenticate_user!
+	before_action :set_user
+
 
 	def index
 		@number = 0
-		@cart_items = current_user.cart_items.all
+		@cart_items = @user.cart_items.all
 	end
 
 	def update
 		@cart_item = CartItem.find(params[:id])   #非同期通信のfrom_withの時はredirectはいらない。
 		@cart_item.update(cart_item_params)
-		redirect_to users_cart_items_path
+		@item_price = @cart_item.item.price * 1.1
 	end
 
 	def create
@@ -47,6 +49,10 @@ class Users::CartItemsController < ApplicationController
 	private
 	def cart_item_params
 		params.require(:cart_item).permit(:item_id, :user_id, :unit)	
+	end
+
+	def set_user
+		@user = current_user
 	end
 
 		
