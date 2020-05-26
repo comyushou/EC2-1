@@ -1,4 +1,5 @@
 class Users::CartItemsController < ApplicationController
+	before_action :authenticate_user! 
 
 	def index
 		@number = 0
