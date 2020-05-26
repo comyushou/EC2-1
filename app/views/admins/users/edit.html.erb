@@ -68,6 +68,7 @@
 			<div class="row sign-up-row">
 				<div class="col-md-2">会員ステータス</div>
 				<div class="col-md-2">
+					<!-- 会員がログインできなくなるようにis_activeで設定 -->
 					<label><%= f.radio_button :is_active, "true" %>有効</label>
 					<lavel><%= f.radio_button :is_active, "false" %>退会済み</lavel>
 

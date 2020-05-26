@@ -2,6 +2,7 @@ class Users::CartItemsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_user
 
+
 	def index
 		@number = 0
 		@cart_items = @user.cart_items.all
