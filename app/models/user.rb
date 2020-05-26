@@ -9,15 +9,13 @@ class User < ApplicationRecord
   has_many :cart_items
 
   def active_for_authentication?
-  	super && (self.is_active == false)
+    super && self.is_active
   end
 
   validates :family_name,:first_name,:kana_family_name,:kana_first_name,:postal_code,:address,:phone_number, presence: true
 
 # ログインする時に退会済み(is_active==false)のユーザーを弾くためのメソッド
-	def active_for_authentication?
-		super && self.is_active
-	end
+	
 
 end
 
