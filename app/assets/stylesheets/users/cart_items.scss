@@ -4,7 +4,7 @@
 
 .cart_item_container {
 	margin-top: 100px;
-	margin-bottom: 100px;
+	margin-bottom: 150px;
 }
 
 .table_index {
@@ -33,9 +33,6 @@
 	background-color: #ffffff;
 }
 
-.dangerall {
-}
-
 .useritem-image {
 	font-size: 20px;
 	padding-top: 20px;
@@ -53,10 +50,10 @@
 
 .item_show {
 	background-color: #ffffff;
+	margin-left: 10px;
+	font-size: 20px;
 }
 
-.row_a {
-}
 
 .row_d {
 	margin-top: 50px;
@@ -79,4 +76,18 @@
 
 .user_f {
 	padding-bottom: 30px;
+}
+
+#total_price {
+	background-color: #ffffff;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.unit_edit {
+	padding-left: 10px;
+}
+
+.row_a {
+	padding-right: 28px;
 }

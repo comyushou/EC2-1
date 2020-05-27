@@ -3,13 +3,13 @@
   <h4 style ="margin-top:100px;margin-bottom:100px;margin-left:80px;"><span style="background-color:#ffcc99">　商品新規登録　</span></h4>
 
 
-  <% if @item.errors.any? %>
-　　<% @item.errors.full_messages.each do |message| %>
-　　<%= message %>⚠︎<br>
-　　<% end %>
-  <% end %>
+    <% if @item.errors.any? %>
+  　　<% @item.errors.full_messages.each do |message| %>
+  　　<%= message %>⚠︎<br>
+  　　<% end %>
+    <% end %>
 
-  
+
 
   <div class="row">
     <div class="col-xs-4">
@@ -52,6 +52,6 @@
 
   </div>
 
-  
+
 
 </div>
