@@ -1,0 +1,6 @@
+<%= form_with model: [ item, @cart ], url: users_cart_items_path, local: true do |f| %>
+<%= f.label :ご購入個数 %>
+<%= f.number_field :unit, value: 1 ,min:1, max:99 %>
+<%= hidden_field_tag :item_id, item.id %>
+<%= f.submit "カートに入れる", class: "btn btn-primary" %>
+<% end %>

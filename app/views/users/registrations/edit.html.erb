@@ -1,0 +1,51 @@
+
+<div class="container sign-up-container">
+  <span class="sign_up-headline">パスワード変更</span><br><br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="row sign-up-row">
+      <div class="col-md-3">メールアドレス</div>
+      <div class="col-md-5">
+        <% f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: "35x5", class: "password" %>
+      </div>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="row sign-up-row">
+    <div class="col-md-3">新しいパスワード
+      <% f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
+        <% end %>
+    </div>
+    <div class="col-md-5">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "新しいパスワード", size: "25x5", class: "password" %></div>
+  </div>
+
+  <div class="row sign-up-row">
+    <div class="col-md-3">パスワード確認</div>
+    <div class="col-md-5">
+      <% f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", size: "25x5", class: "password" %>
+    </div>
+  </div>
+
+  <div class="row sign-up-row">
+    <div class="col-md-3">現在のパスワード</div>
+    <div class="col-md-5">
+      <% f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワード", size: "25x5", class: "password" %>
+    </div>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit "Update", class: "btn btn-success", style: "padding: 5px 45px 5px; margin-left: 100px;" %>
+  </div>
+<% end %>
+</div>

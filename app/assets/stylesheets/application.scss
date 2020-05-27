@@ -1,0 +1,212 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.plus_link:hover{
+	text-decoration: none;
+}
+.sign_up_box {
+	margin-top: 100px;
+	margin-left: 200px;
+}
+.navbar-left {
+	margin-left: 70px;
+}
+.navbar-right {
+	margin-right: 50px;
+}
+header {
+	background-color: #FFA000;
+	height: 70px;
+}
+.header-headline {
+	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+	font-size: 28px;
+	color: #331a00;
+	border: 1px solid #331a00;
+	padding: 8px;
+	background-color: #f5c4c4;
+	border-radius: 10px;
+}
+.user-name {
+	margin-top: 15px;
+}
+body {
+	background-color: #ffffe0;
+}
+.admin-login-container {
+	margin: 0 auto;
+}
+.admin-login-container {
+	margin-top: 180px;
+}
+
+.sign-up-container, .user-login-container, .password-container, .leave-container, .mypage-container, .item_container, .top-container, .about-container, .cart_item_container, .address_container, .admin-top-container, .admin-login-container, .admin-users-container, .admin-container, .admin-edit-container, .order-history-container, .comfirm-container, .new-container, .password-container {
+	height: 900px;
+}
+.user-login-container {
+	margin: 0 auto;
+}
+.user-login-container {
+	margin-top: 180px;
+}
+.col-md-4 {
+	text-align: right;
+}
+.col-md-5 {
+	text-align: left;
+}
+.left-col {
+	margin-left: 130px;
+}
+.pass-new {
+	margin-left: 300px;
+}
+.login-headline {
+	background-color: #f5f5f5;
+	font-size: 16px;
+	line-height: 20px;
+	padding: 5px;
+	text-align: left;
+	margin-left: 250px;
+}
+.col-md-9 {
+	text-align: right;
+	margin-top: 10px;
+}
+.login-button {
+	padding: 5px 30px 5px;
+	margin-bottom: 30px;
+	margin-left: 130px;
+}
+.link-sign-up {
+	margin-left: 350px;
+	margin-top: 25px;
+}
+.field-password {
+	margin-top: 18px;
+}
+.email-form, .password-form, .family_name, .first_name, .kana_family_name, .kana_first_name, .email, .postal_code, .address-code, .phone_number, .password, .password_confirmation {
+	border-radius: 5px;
+}
+
+.sign-up-container, .password-container {
+	margin-top: 100px;
+}
+.col-md-1 {
+	text-align: right;
+}
+.col-md-3 {
+	text-align: left;
+}
+.sign-up-row {
+	margin-bottom: 8px;
+	line-height: 25px;
+}
+.top-row {
+	margin-top: 50px;
+}
+.sign_up-headline, .login-link, .user-edit-headline {
+	background-color: #f5f5f5;
+	font-size: 20px;
+	line-height: 20px;
+	padding: 5px;
+	margin-left: 70px;
+}
+.col-md-12 {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.login-path {
+	margin-top: 10px;
+	margin-left: 170px;
+}
+.update-row-button {
+	margin-top: 20px;
+}
+.user-edit-btn {
+	padding: 5px 25px 5px;
+}
+.leave-btn {
+	margin-left: 240px;
+	padding: 5px 25px 5px;
+}
+.password-headline {
+	background-color: #f5f5f5;
+	font-size: 20px;
+	line-height: 20px;
+	padding: 5px;
+}
+.password-email {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.email-password {
+	margin-top: 5px;
+}
+.link-box {
+	margin-top: 10px;
+}
+.password-form2 {
+	margin-top: 28px;
+	border-radius: 5px;
+}
+.form-password {
+	margin-top: 2px;
+	margin-bottom: 10px;
+}
+.password-success {
+	padding: 3px 19px;
+}
+.genre-var {
+	border: 1px solid #FFA000;
+	background-color: #fffafa;	
+}
+.genre-th {
+	border-bottom: 1px solid #FFA000;
+	background-color: #FFA000;
+}
+.genre-headline {
+	text-align: center;
+	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+	color: #331a00;
+}
+.genre-td {
+	text-align: center;
+	padding-bottom: 30px;
+}
+.genre-item-name {
+	line-height: 40px;
+	color: #331a00;
+	font-size: 18px;
+}
+#notice {
+	color: #0099FF;
+}
+footer {
+	background-color: #FFA000;
+	height: 70px;
+}
+.nav {
+	margin-top: 10px;
+}

@@ -1,0 +1,45 @@
+<div class="container admin-container">
+
+  <div class="row">
+    <h4 style ="margin-top:100px;margin-bottom:100px;margin-left:80px;"><span style="background-color:#ffcc99" >　商品詳細　</span></h4>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <%= attachment_image_tag @item, :picture,:fill,250,200,format:'jpg'%>
+    </div>
+
+    <div class="col-xs-3" style="margin-left:30px;">
+      <p>商品名</p>
+      <p style="margin-bottom:80px;">商品説明</p>
+      <p>ジャンル</p>
+      <p>税込価格(税抜価格)</p>
+      <p>販売ステータス</p>
+    </div>
+
+    <div class="col-xs-3">
+
+    <p><%= @item.name %></p>
+    <div style="margin-bottom:80px;"><p><%= @item.description %></p></div>
+    <p><%= @item.genre.name %></p>
+    <p><%= @zeikomi %>(<%= @item.price %>)円</p>
+    <p><% if @item.is_sale_status  == true %>
+              販売中
+            <% else %>
+              売切れ
+            <% end %></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-xs-2 pull-right">
+    <%= link_to "編集する",edit_admins_item_path(@item.id),class:"btn btn-primary btn-lg" %>
+    </div>
+  </div>
+
+
+</div>
+
+
+

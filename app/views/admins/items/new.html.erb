@@ -1,0 +1,57 @@
+<div class="container admin-container">
+
+  <h4 style ="margin-top:100px;margin-bottom:100px;margin-left:80px;"><span style="background-color:#ffcc99">　商品新規登録　</span></h4>
+
+
+    <% if @item.errors.any? %>
+  　　<% @item.errors.full_messages.each do |message| %>
+  　　<%= message %>⚠︎<br>
+  　　<% end %>
+    <% end %>
+
+
+
+  <div class="row">
+    <div class="col-xs-4">
+
+      <%= form_for(@item,url:admins_items_path) do |f| %>
+        <img src="/assets/sara.jpg" alt="新規登録する画像を選択してください" style="width:300px; height:200px;margin-bottom:10px;">
+        <%= f.attachment_field :picture %>
+
+    </div>
+
+    <div class="col-xs-2 pull-left">
+      <p>商品名</p>
+      <p style ="margin-bottom: 160px">商品説明</p>
+      <p>ジャンル</p>
+      <p style ="margin-top: 20px">税抜価格</p>
+      <p>販売<br>ステータス</p>
+
+    </div>
+
+    <div class="col-xs-3">
+
+      <p><%= f.text_field :name, :size=>"26" %></p>
+  	  <p><%= f.text_area :description %></p>
+  	  <p><%= f.collection_select :genre_id,Genre.all,:id,:name,:include_blank => "-- 選択してください --" %></p>
+  	  <p><%= f.text_field :price %> 円</p>
+	  <%= f.select :is_sale_status,[["有効","true"],["無効","false"]],:include_blank =>"-- 選択してください --" %></p>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-xs-3 pull-right">
+
+      <%= f.submit "新規登録",class:"btn btn-primary btn-lg", data: {"turbolinks"=>false} %>
+      <% end %>
+
+    </div>
+
+  </div>
+
+
+
+</div>

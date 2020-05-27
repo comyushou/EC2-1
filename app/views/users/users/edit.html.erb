@@ -1,0 +1,79 @@
+<div class="container sign-up-container">
+  <span class="user-edit-headline">登録情報編集</span>
+
+	<%= form_for(@user, url: users_mypage_path) do |f| %>
+		<div class="row sign-up-row top-row">
+    		<div class="col-md-2">名前</div>
+    		<div class="col-md-1">
+				<%= f.label :family_name, "(姓)" %>
+			</div>
+			<div class="col-md-2">
+				<%= f.text_field :family_name, autofocus: true, size: "25x5", placeholder: "姓", class: "family_name" %>
+			</div>
+			<div class="col-md-1">
+				<%= f.label :first_name, "(名)" %><br />
+			</div>
+			<div class="col-md-2">
+				<%= f.text_field :first_name, autofocus: true, size: "25x5", placeholder: "名", class: "first_name" %>
+			</div>
+		</div>
+
+		<div class="row sign-up-row">
+			<div class="col-md-2">フリガナ</div>
+			<div class="col-md-1">
+				<%= f.label :kana_family_name, "(セイ)" %>
+			</div>
+			<div class="col-md-2">
+				<%= f.text_field :kana_family_name, autofocus: true, size: "25x5", placeholder: "セイ", class: "kana_family_name" %>
+			</div>
+			<div class="col-md-1">
+				<%= f.label :kana_first_name, "(メイ)" %>
+			</div>
+			<div class="col-md-2">
+				<%= f.text_field :kana_first_name, autofocus: true, size: "25x5", placeholder: "メイ", class: "kana_first_name" %>
+			</div>
+		</div>
+
+		<div class="row sign-up-row">
+			<div class="col-md-2">メールアドレス</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<% f.label :email %>
+				<%= f.email_field :email, autofocus: true, size: "25x5", placeholder: "メールアドレス", autocomplete: "email", class: "email" %>
+			</div>
+		</div>
+
+		<div class="row sign-up-row">
+			<div class="col-md-2">郵便番号(ハイフンなし)</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<%= f.text_field :postal_code, autofocus: true, size: "25x5", placeholder: "郵便番号", autocomplete: "postal_code", class: "postal_code" %>
+			</div>
+		</div>
+
+		<div class="row sign-up-row">
+			<div class="col-md-2">住所</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<%= f.text_field :address, autofocus: true, size: "67x5", placeholder: "住所", autocomplete: "address", class: "address-code" %>
+			</div>
+		</div>
+
+		<div class="row sign-up-row">
+			<div class="col-md-2">電話番号(ハイフンなし)</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<%= f.text_field :phone_number, autofocus: true, size: "25x20", placeholder: "電話番号", autocomplete: "phone_number", class: "phone_number" %>
+			</div>
+		</div>
+
+		<div class="row update-row-button">
+			<div class="col-md-4">
+    			<%= f.submit "編集内容を保存する", class: "btn btn-primary user-edit-btn" %>
+    		</div>
+    		<div class="col-md-5">
+    			<%= link_to "退会する", users_leave_path, class: "btn btn-danger leave-btn" %>
+    		</div>
+		</div>
+	<% end %>
+</div>

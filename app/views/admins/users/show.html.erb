@@ -1,0 +1,56 @@
+<div class="container admin-users-container">
+	<span class="admin-user-show"><%= @user.family_name %>
+			<%= @user.first_name %>さんの会員詳細</span><br>
+		<table class="admin-users-show-table">
+			<tbody>
+					<tr>
+						<td class="show-td left-td">顧客ID</td>
+						<td class="right-td"><%= @user.id %>
+							<% if @user.is_active %>
+								<span class="btn btn-success success-button">有効会員</span>
+							<% else %>
+								<span class="btn btn-danger success-button">無効会員</span>
+							<% end %>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left-td">氏名</td>
+						<td class="right-td"><%= @user.family_name %>
+							<%= @user.first_name %></td>
+					</tr>
+
+					<tr>
+						<td class="left-td">フリガナ</td>
+						<td class="right-td"><%= @user.kana_family_name %>
+							<%= @user.kana_first_name %></td>
+					</tr>
+
+					<tr>
+						<td class="left-td">郵便番号</td>
+						<td class="right-td"><%= @user.postal_code %></td>
+					</tr>
+
+					<tr>
+						<td class="left-td">住所</td>
+						<td class="right-td"><%= @user.address %></td>
+					</tr>
+
+					<tr>
+						<td class="left-td">電話番号</td>
+						<td class="right-td"><%= @user.phone_number %></td>
+					</tr>
+
+					<tr>
+						<td class="left-td">メールアドレス</td>
+						<td class="right-td"><%= @user.email %></td>
+					</tr>
+
+			</tbody>
+		</table>
+		<!-- ※会員情報編集画面に遷移する。 -->
+		<%= link_to "編集する", edit_admins_user_path(@user), class: "btn btn-primary edit-user-link" %>
+
+		<!-- ※注文履歴一覧画面に遷移する。 -->
+		<%= link_to "注文履歴一覧を見る", admins_orders_path, class: "btn btn-primary" %>
+</div>

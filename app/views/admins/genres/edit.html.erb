@@ -1,0 +1,15 @@
+<div class="container admin-container">
+
+  <h4 style ="margin-top:100px;margin-bottom:40px;margin-left:60px"><span style="background-color:#ffcc99">　ジャンル編集　</span></h4>
+
+
+  <%= form_for(@genre, url:admins_genre_path(@genre)) do |f| %>
+    ジャンル
+    <span style="margin-bottom: 5px;margin-right:3px; border: 1px solid #000000; padding:3px; ">
+    <%= @genre.name %>　　　　</span>
+	<label><%= f.radio_button :is_status, "true" %>有効</label>
+	<lavel><%= f.radio_button :is_status, "false" %>無効　</lavel>
+  <%= f.submit "変更を保存する",class:"btn btn-primary btn" %>
+  <% end %>
+
+</div>

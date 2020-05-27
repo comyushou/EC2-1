@@ -1,0 +1,100 @@
+<div class="container comfirm-container">
+
+  	<div style ="margin-top:100px;">
+    	<span style="font-size: 20px;line-height: 30px;background-color: #f5f5f5;padding: 5px;">
+    		注文情報確認
+    	</span>
+	</div>
+
+  <% @subtotal = [] %>
+
+  	<div class ="row" style="margin-top:20px;">
+	  	<div class ="col-xs-8">
+
+	      <div class ="confconf">
+		    <table border="1" class="table">
+				<tr class="active">
+					<th>商品名</th>
+					<th>単価（税込）</th>
+					<th>数量</th>
+					<th>小計</th>
+				</tr>
+
+				<% current_user.cart_items.each do |cart_item| %>
+
+					<tr>
+						<td><%= attachment_image_tag cart_item.item, :picture, :fill, 30, 30 ,format: "jpg" %><%= cart_item.item.name %></td>
+						<td><%= (cart_item.item.price.to_i * 1.1).floor %></td>
+						<td><%= cart_item.unit %></td>
+						<td><%= (cart_item.item.price.to_i * 1.1 * cart_item.unit).floor %></td>
+					</tr>
+
+					<% @subtotal.push (cart_item.item.price.to_i * 1.1 * cart_item.unit).floor %>
+					<!-- @subtotal = [１つ目の商品の小計, ] -->
+
+				<% end %>
+	        </table>
+	      </div>
+
+	    </div>
+	    <div class ="col-xs-4">
+		    <% @total = @subtotal.sum %>
+
+			    <div class ="confconf">
+					<table border="1" class="table">
+					 	<tr>
+					 		<th class="active">送料</th>
+					 		<td>800</td>
+					 	</tr>
+					 	<tr>
+					 		<th class="active">商品合計</th>
+					 		<td><%= @total %></td>
+					 	</tr>
+					 	<tr>
+					 		<th class="active">請求金額</th>
+					 		<td><%= @total + 800 %></td>
+					 	</tr>
+					 </table>
+				</div>
+		</div>
+  	</div>
+  	<div class ="row">
+  		<div class ="col-xs-2">
+
+	   		<h4>支払方法</h4>
+	   		<h4 style="margin-top:30px;">お届け先</h4>
+
+		</div>
+
+		<div class ="col-xs-10" style="margin-top:10px;">
+
+			<%= @order.is_payment_method %><br>
+
+        	<div style="margin-top:28px;">
+        		<%= @order.postal_code %><%= @order.address %><br>
+        		<%= @order.review_name %>
+        	</div>
+    	</div>
+  	</div>
+
+  	<div class ="row" style="margin-top:30px;">
+        <%= form_for(@order,url: users_orders_path, method: :post) do |f| %>
+	        <%= f.hidden_field :is_payment_method, :value => @order.is_payment_method %>
+	        <%= f.hidden_field :user_id, :value => current_user.id %>
+	        <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+	        <%= f.hidden_field :address, :value => @order.address %>
+	        <%= f.hidden_field :review_name, :value => @order.review_name %>
+	        <%= f.hidden_field :order_status, :value => '入金待ち' %>
+	        <%= f.hidden_field :billing_amount, :value =>  @total %>
+	        <%= f.hidden_field :postage, :value => 800 %>
+
+	        <%= hidden_field_tag :select_button, @select_button %>
+	        <%= f.submit "　購入を確定する　", class:'btn btn-md btn-success mt-2 center-block' %>
+        <% end %>
+  	</div>
+</div>
+
+  </div>
+
+  </div>
+

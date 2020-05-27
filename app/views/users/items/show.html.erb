@@ -1,0 +1,21 @@
+<div class="container item_container">
+	<div class="row row_item_show">
+		<div class="col-xs-3">
+			<%= render 'layouts/genreslist' %>
+		</div>
+		<div class="col-xs-3">
+			<label><%= attachment_image_tag(@item, :picture, :fill, 220, 180) %></label>
+		</div>
+		<div class="col-xs-6 item_text">
+			<div class="item_name">
+				<%= @item.name %><br>
+			</div>
+				<%= @item.description %><br>
+			<div class="item_price">
+				<%= render 'price', item: @item %>
+			</div>
+				<%= render 'cartin', item: @item %>
+		</div>
+	</div>
+</div>
+

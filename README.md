@@ -1,24 +1,40 @@
-# README
+### NAGANO-CAKE
+===================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
+元々近隣住⺠が顧客だったが、昨年始めたInstagramから⼈気となり、全国から注⽂が来るようになった。元々近隣住⺠が顧客だったが、昨年始めたInstagramから⼈気となり、全国から注⽂が来るようになり、管理機能を含む通販サイトを作成することとなった。
 
-Things you may want to cover:
+### 使い方
+===================
 
-* Ruby version
+_インストール方法_<br>
+   $ git clone<br>
+   $ bundle install<br>
+   $ rails db:migrate<br>
+   $ rails db:seed<br>
+   $ rails s -b 0.0.0.0
 
-* System dependencies
+### 管理者ページログイン
+====================
 
-* Configuration
+   Email: admin@admin.com<br>
+   Password: adminadmin
 
-* Database creation
+### 開発環境
+====================
 
-* Database initialization
+- vagrant
+- Ruby 2.5.7
+   - Rails 5.2.4.3
+- Gems
+   - devise
+   - refile
+   - refile-mini_magick
+   - bootstrap-sass ~> 3.3.6
+   - kaminari
 
-* How to run the test suite
+### DMM WEBCAMP 2ヶ月目課題制作
+=============================
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+チーム：コミュショウ
+もっちゃん　ウォーター　無糖　れなまん

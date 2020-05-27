@@ -1,0 +1,135 @@
+// Place all the styles related to the users/orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.order-history-container {
+	margin-top: 100px;
+}
+.order-history-headline {
+	background-color: #f5f5f5;
+	font-size: 20px;
+	line-height: 30px;
+	padding: 5px;
+	margin-left: 150px;
+}
+.order-history {
+	margin:0 auto;
+}
+.tr-box {
+	font-weight: bold;
+	font-size: 14px;
+}
+.order-history, .tr-box, .th-box, .td-box {
+	border: 1px solid #2b2b2b;
+	margin-top: 20px;
+}
+.th-box {
+	height: 50px;
+	text-align: center;
+	background-color: #f5f5f5;
+}
+.td-box {
+	background-color: #ffffff;
+	padding-left: 7px;
+}
+.container-complete {
+	margin-top: 300px;
+	text-align: center;
+}
+
+.pricebox{
+	padding-top: 80%;
+}
+.create, .history-create {
+	width: 150px;
+}
+.user, .history-user {
+	width: 450px;
+}
+.product, .history-product {
+	width: 150px;
+}
+.price, .history-price {
+	width: 80px;
+}
+.status, .show-page, .history-status, .history-show {
+	width: 100px;
+}
+.order-box1, .order-box2, .order-box3, .box-tr, .th-class {
+	border: 1px solid #2b2b2b;
+}
+.th-box-left, .order-show-history {
+	background-color: #f5f5f5
+}
+.th-box-right, .order-show-menu {
+	background-color: #ffffff; 
+}
+.left-show {
+	width: 150px;
+	padding-left: 5px;
+
+}
+.right-show {
+	width: 350px;
+	padding-left: 5px;
+}
+.one {
+	height: 70px;
+}
+.three {
+	height: 50px;
+}
+.left-price {
+	width: 160px;
+	padding-left: 5px;
+}
+.right-price {
+	width: 140px;
+	padding-left: 5px;
+}
+.left-price, .right-price {
+	height: 50px;
+}
+.product-item, .yen, .unit-box, .price-box {
+	height: 50px;
+	padding-left: 5px;
+}
+.product-item {
+	width: 300px;
+}
+.yen {
+	width: 100px;
+}
+.unit-box, .price-box {
+	width: 70px;
+}
+.order-show-info {
+	display:  inline-block;
+	margin-top: 30px;
+	font-size: 18px;
+}
+.text-box {
+	margin-left: 10px;
+}
+.pay-info {
+	margin-left: 20px;
+}
+.user-info {
+	margin-left: 40px;
+}
+.form-two {
+	margin-left: 130px;
+}
+.form-one {
+	margin-left: 10px;
+}
+.form-two, .form-one {
+	border-radius: 5px;
+}
+.pay-btn {
+	margin-top: 20px;
+	margin-left: 200px;
+}
+
+.confconf{
+	border-top:solid 1px black;
+}

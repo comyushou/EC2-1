@@ -1,0 +1,46 @@
+<div class="container admin-users-container">
+	<span class="admin-users-headline">会員一覧</span>
+		<div class="align-items-center">
+			<table class="table admin-users-table">
+				<thead class="column-head">
+					<tr class="row">
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+
+				<% @users.each do |user| %>
+					<tbody class="column-body">
+						<tr>
+							<td></td>
+							<td>
+								<%= user.id %>
+							</td>
+							<td>
+								<%= link_to admins_user_path(user) do %>
+								<%= user.family_name %>
+								<%= user.first_name %>
+								<% end %>
+							</td>
+							<td>
+								<%= user.email %>
+							</td>
+							<td>
+								<% if user.is_active %>
+									有効
+								<% else %>
+									退会済
+								<% end %>
+
+							</td>
+						</tr>
+
+					</tbody>
+				<% end %>
+			</table>
+			<%= paginate @users %>
+		</div>
+		</div>
+</div>

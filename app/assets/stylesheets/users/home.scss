@@ -1,0 +1,58 @@
+// Place all the styles related to the users/home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.main-content {
+	width: 100%;
+}
+.top-container {
+	margin-top: 100px;
+}
+.main-image{
+	position: relative;
+}
+.main-image, img {
+	margin-bottom: 20px;
+}
+.main-text {
+	position: absolute;
+	top: 250px;
+	left: 35px;
+	letter-spacing: 8px;
+}
+.product-box {
+	margin-bottom: 50px;
+}
+.product-image {
+	float: left;
+	display: inline-block;
+	width: 22%;
+	margin-right: 5px;
+}
+
+.product-comment {
+	top: 80px;
+	left: 0;
+	font-size: 14px;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+.user-item-index {
+	margin-left: 620px;
+	font-size: 14px;
+	color: #331a00;
+}
+.about-container {
+	text-align: center;
+	margin-top: 150px;
+}
+.about-text {
+	margin-top: 20px;
+	letter-spacing: 8px;
+	line-height: 35px;
+	font-size: 16px;
+}

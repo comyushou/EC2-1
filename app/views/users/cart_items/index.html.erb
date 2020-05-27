@@ -1,0 +1,84 @@
+<div class="container cart_item_container">
+	<div class="row row_top">
+		<div class="col-xs-7" >
+			<span class="cartname">ショッピングカート</span>
+		</div>
+		<div class="col-xs-5 col_d" >
+		 	<%= link_to "カートを空にする", users_destroy_cart_path, method: :delete, class: "btn btn-danger dangerall" %>
+		</div>
+	</div>
+	<div class="row">
+		<table border="1" width="1000">
+			<thead>
+				<tr class="cart_top">
+					<th>商品名</th>
+					<th>単価 (税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th width="25%"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @cart_items.each do |cart_item| %>
+				  	<tr class="item_show">
+				  		<td>
+				  			<div class="useritem-image">
+					  			<%= attachment_image_tag(cart_item.item, :picture, :fill, 130, 130) %>
+					  			<%= link_to users_item_path(cart_item.item), class: "a_a" do %>
+							  		<span class="useritem_name">
+							  			<%= cart_item.item.name %>	
+							  		</span>
+							  	<% end %>
+					  		</div>
+				  		</td>
+				  		<td class="number">
+				  			<% item_price = cart_item.item.price.to_i%> 
+							¥ <%= (item_price.to_i * 1.1).floor %><br>
+				  		</td>
+				  		<td class="unit_edit">
+							<%= form_with model: cart_item, url: users_cart_item_path(cart_item), remote: true do |f| %>
+								<%= f.number_field :unit, min:1, max:99  %>
+								<%= f.submit "変更", class: "btn btn-primary" %>
+							<% end %>
+						</td>
+						<td id="unit_item_<%= cart_item.id %>">
+				  			<%= render 'unit_item', cart_item: cart_item, item_price: item_price %>
+
+				  		</td>  		
+				  		<td>
+				  			<%= link_to "削除する", users_path(cart_item), method: :delete, class: "btn btn-danger shop_btn"%>
+				  		</td>
+				  	</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<div class="row row_a">
+		<div class="col-xs-7">
+			<table class="table table_buy">
+				<%= link_to "買い物を続ける", users_root_path, class: "btn btn-primary shop_btn" %>
+			</table>
+		</div>
+		<div class="col-xs-5">
+			<table border="1" width="320" height="70">
+				 <tr>
+				 	<th class="cart_top">
+				 		合計金額
+				 	</th>
+				 	<td id="total_price">
+				 		¥ <%= (@total * 1.1).floor %>
+				 	</td>
+				 </tr>
+			</table>
+		</div>
+	</div>
+	<div class="row row_d">
+		<div class="col-xs-5">
+		</div>
+		<div class="col-xs-7  user_f">
+				<%= link_to "情報入力に進む", new_users_order_path, class: "btn btn-success btn-lg" %>
+		</div>
+	</div>
+</div>
+
