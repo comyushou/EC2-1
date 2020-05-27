@@ -17,8 +17,9 @@
     <div class ="col-xs-10">
 
        <p><%= link_to admins_user_path(@order.user_id),class: "ordername" do %>
-         <span class ="ordername"><%= @order.user.family_name %> <%= @order.user.first_name %></span>
-         <% end %></p>
+            <span class ="ordername"><%= @order.user.family_name %> <%= @order.user.first_name %></span>
+          <% end %>
+       </p>
 
        <p>〒<%= @order.postal_code %> <%= @order.address %><br>
                         <%= @order.review_name %></p>
@@ -63,7 +64,7 @@
                   <span class ="leftsub"><%= f.submit "更新",class:"btn btn-primary btn-sm" %></span>
                 <% end %></td>
         </tr>
-          <% totalprice += (order.item.price.to_i * order.unit * 1.1).to_i %>
+            <% totalprice += (order.item.price.to_i * order.unit * 1.1).to_i %>
           <% end %>
     </table>
    </div>
@@ -71,9 +72,9 @@
    <div class ="col-xs-2">
   
   <div class ="pricebox">
-  <p>商品合計<%= totalprice %></p>
-  <p>送料<%= @order.postage %></p>
-  <p>請求金額合計 <%= (totalprice +  @order.postage)%></p>
+    <p>商品合計<%= totalprice %></p>
+    <p>送料<%= @order.postage %></p>
+    <p>請求金額合計 <%= (totalprice +  @order.postage)%></p>
   </div>
 
    </div>
