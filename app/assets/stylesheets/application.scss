@@ -42,14 +42,13 @@ header {
 	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
 	font-size: 28px;
 	color: #331a00;
-	line-height: 70px;
 	border: 1px solid #331a00;
 	padding: 8px;
 	background-color: #f5c4c4;
 	border-radius: 10px;
 }
 .user-name {
-	line-height: 70px;
+	margin-top: 15px;
 }
 body {
 	background-color: #ffffe0;
@@ -61,8 +60,8 @@ body {
 	margin-top: 180px;
 }
 
-.sign-up-container, .user-login-container, password-container, .leave-container, .mypage-container, .item_container, .top-container, .about-container, .cart_item_container, .address_container, .admin-top-container, .admin-login-container, .admin-users-container, .admin-container, .admin-edit-container, .order-history-container, .comfirm-container, .new-container, .password-container {
-	height: 800px;
+.sign-up-container, .user-login-container, .password-container, .leave-container, .mypage-container, .item_container, .top-container, .about-container, .cart_item_container, .address_container, .admin-top-container, .admin-login-container, .admin-users-container, .admin-container, .admin-edit-container, .order-history-container, .comfirm-container, .new-container, .password-container {
+	height: 900px;
 }
 .user-login-container {
 	margin: 0 auto;
@@ -168,8 +167,9 @@ body {
 .link-box {
 	margin-top: 10px;
 }
-.password-form {
-	margin-top: 20px;
+.password-form2 {
+	margin-top: 28px;
+	border-radius: 5px;
 }
 .form-password {
 	margin-top: 2px;
@@ -206,4 +206,7 @@ body {
 footer {
 	background-color: #FFA000;
 	height: 70px;
+}
+.nav {
+	margin-top: 10px;
 }

@@ -3,9 +3,9 @@
   <h4 style ="margin-top:100px;margin-bottom:40px;margin-left:50px;"><span style="background-color:#ffcc99">　ジャンル一覧：追加　</span></h4>
 
   <% if @genre.errors.any? %>
-  <% @genre.errors.full_messages.each do |message| %>
-  <%= message %>⚠︎
-  <% end %>
+    <% @genre.errors.full_messages.each do |message| %>
+      <%= message %>⚠︎
+    <% end %>
   <% end %>
 
 
@@ -21,30 +21,30 @@
 
 
     <div class ="genretable" style="margin-top:30px">
-    <table class ="table">
-    	<thead>
-    		<tr class="active">
-    			<th width="50%">ジャンル</th>
-    			<th>状態</th>
-    			<th></th>
-    		</tr>
-    	</thead>
+      <table class ="table">
+      	<thead>
+      		<tr class="active">
+      			<th width="50%">ジャンル</th>
+      			<th>状態</th>
+      			<th></th>
+      		</tr>
+      	</thead>
 
-    		<% @genres.each do |genre| %>
-    		<tr>
-    			<td><%= genre.name %></td>
-    			<td><% if genre.is_status  == true %>
-                有効
-              <% else %>
-                無効
-              <% end %>
-          </td>
-          <td><%= link_to "編集する",edit_admins_genre_path(genre.id),class:"btn btn-primary btn-sm" %></td>
-    		</tr>
-    		<% end %>
+      		<% @genres.each do |genre| %>
+        		<tr>
+        			<td><%= genre.name %></td>
+        			<td><% if genre.is_status  == true %>
+                    有効
+                  <% else %>
+                    無効
+                  <% end %>
+              </td>
+              <td><%= link_to "編集する",edit_admins_genre_path(genre.id),class:"btn btn-primary btn-sm" %></td>
+        		</tr>
+      		<% end %>
 
-    </table>
-    <%= paginate @genres %>
+      </table>
+      <%= paginate @genres %>
     </div>
 
   </div>
