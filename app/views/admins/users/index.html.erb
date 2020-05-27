@@ -12,32 +12,32 @@
 				</thead>
 
 				<% @users.each do |user| %>
-				<tbody class="column-body">
-					<tr>
-						<td></td>
-						<td>
-							<%= user.id %>
-						</td>
-						<td>
-							<%= link_to admins_user_path(user) do %>
-							<%= user.family_name %>
-							<%= user.first_name %>
-							<% end %>
-						</td>
-						<td>
-							<%= user.email %>
-						</td>
-						<td>
-							<% if user.is_active %>
-								有効
-							<% else %>
-								退会済
-							<% end %>
+					<tbody class="column-body">
+						<tr>
+							<td></td>
+							<td>
+								<%= user.id %>
+							</td>
+							<td>
+								<%= link_to admins_user_path(user) do %>
+								<%= user.family_name %>
+								<%= user.first_name %>
+								<% end %>
+							</td>
+							<td>
+								<%= user.email %>
+							</td>
+							<td>
+								<% if user.is_active %>
+									有効
+								<% else %>
+									退会済
+								<% end %>
 
-						</td>
-					</tr>
+							</td>
+						</tr>
 
-				</tbody>
+					</tbody>
 				<% end %>
 			</table>
 			<%= paginate @users %>

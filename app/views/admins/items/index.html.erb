@@ -5,43 +5,45 @@
 
     <%= link_to(new_admins_item_path, class: "plus_link") do %>
       <div class ="itemnew">
-      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
       </div>
 　　 <% end %>
 
   <center>
-      <div class="row">
 
-        <div class ="itemtable">
-            <table class ="table">
-            	<thead>
-            		<tr class="active">
-            			<th>商品ID</th>
-            			<th>商品名</th>
-            			<th>税抜価格</th>
-            			<th>ジャンル</th>
-            			<th>ステータス</th>
-            		</tr>
-            	</thead>
-            	    <% @items.each do |item| %>
-                	    <tr>
-                	    	<td><%= item.id %></td>
-                	    	<td><%= link_to admins_item_path(item.id), class: "itemname" do %><span class="itemname"><%= item.name %></span><% end %></td>
-                	    	<td><%= item.price%></td>
-                	    	<td><%= item.genre.name%></td>
-                	    	<td><% if item.is_sale_status == true %>
-                	    		    販売中
-                	    		  <% else %>
-                	    		    販売停止中
-                	    		  <% end %>
-                	        </td>
-                	    </tr>
-            	    <% end %>
-            </table>
-        </div>
-       <%= paginate @items %>
+  <div class="row">
 
-      </div>
+    <div class ="itemtable">
+      <table class ="table">
+      	<thead>
+      		<tr class="active">
+      			<th>商品ID</th>
+      			<th>商品名</th>
+      			<th>税抜価格</th>
+      			<th>ジャンル</th>
+      			<th>ステータス</th>
+      		</tr>
+      	</thead>
+      	    <% @items.each do |item| %>
+      	    <tr>
+      	    	<td><%= item.id %></td>
+      	    	<td><%= link_to admins_item_path(item.id), class: "itemname" do %><span class="itemname"><%= item.name %></span><% end %></td>
+      	    	<td><%= item.price%></td>
+      	    	<td><%= item.genre.name%></td>
+      	    	<td><% if item.is_sale_status == true %>
+      	    		    販売中
+      	    		  <% else %>
+      	    		    販売停止中
+      	    		  <% end %>
+      	      </td>
+      	    </tr>
+      	    <% end %>
+      </table>
+    </div>
+  <%= paginate @items %>
+
+  </div>
+
   </center>
 
 </div>
