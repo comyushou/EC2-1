@@ -6,7 +6,7 @@
 			<div class="information-button">
 				<span class="information">登録情報</span>
 					<%= link_to '編集する', users_mypage_edit_path, class: "btn btn-primary" %>
-					<%= link_to 'パスワードを変更する', new_user_password_path(current_user), class: "btn btn-primary" %>
+					<%= link_to 'パスワードを変更する', edit_user_registration_path, class: "btn btn-primary" %>
 			</div>
 			<table class="user-table">
 				<tr>

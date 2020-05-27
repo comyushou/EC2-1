@@ -21,17 +21,18 @@
 			<%= current_user.address %><br>
 			<%= current_user.family_name %>
 			<%= current_user.first_name %></span><br>
-		</P>
+		</p>
 		<label class="pay-info">
-			<%= radio_button_tag("select_button", "addresses_address") %><span class="text-box">登録済み住所から選択</span></label><br>
-
-			<span class="user-info"><%= f.label :address_id %>
+			<%= radio_button_tag("select_button", "addresses_address") %><span class="text-box">登録済み住所から選択</span>
+		</label><br>
+		<span class="user-info"><%= f.label :address_id %>
 			<!-- 下記はaddree_idがf.fieldsで使われているので、"order[address_id]"の書き方 -->
-			<%= select_tag "order[address_id]", options_from_collection_for_select(Address.where(user_id: current_user.id), :id, :address), style: "width: 200px;" %></span><br><br>
+			<%= select_tag "order[address_id]", options_from_collection_for_select(Address.where(user_id: current_user.id), :id, :address), style: "width: 200px;" %>
+		</span><br><br>
 			<%#= select_tag :user_id, options_for_select(Address.where(user_id: current_user.id).map { |e| e.address }) %>
-			<label class="pay-info">
-
-			<%= radio_button_tag("select_button", "new_user_address") %><span class="text-box">新しいお届け先</span></label>
+		<label class="pay-info">
+			<%= radio_button_tag("select_button", "new_user_address") %><span class="text-box">新しいお届け先</span>
+		</label>
 			<%= f.fields_for(@new_address) do |address| %>
 			<p class="user-info">郵便番号(ハイフンなし)
 				<%= address.text_field :postal_code, size: "25x5", class: "form-one" %>
