@@ -2,7 +2,7 @@
 	<thead>
 		<tr class="genre-tr">
 			<th class="genre-th">
-				<h3 class="genre-headline">GENRE SERCH</h3>
+				<h3 class="genre-headline">GENRE SEARCH</h3>
 			</th>
 		</tr>
 	</thead>
@@ -11,7 +11,7 @@
 		<tr class="genre-tr">
 			<td class="genre-td">
 				<% @genres.each do |genre| %>
-				　　<!-- 飛ばす先はindexページだが、引数にジャンルidを指定してコントローラーでif文を使い普通のindexページとgenreのindexページを分岐させる
+				<!-- 飛ばす先はindexページだが、引数にジャンルidを指定してコントローラーでif文を使い普通のindexページとgenreのindexページを分岐させる
 					(このURLで飛ぶのはジャンルのindexページのみ) -->
 					<!-- パラメーターとしてジャンルidをindexに渡す -->
 					<%= link_to "#{genre.name}", users_items_path(genre_id: genre.id), class: "col-xs-12 genre-item-name" %>

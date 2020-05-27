@@ -7,8 +7,6 @@
 			<h2><%= @name %>一覧全<%= @number %>件</h2>
 				<div class="item-box clearfix">
 					<% @items.each do |item| %>
-						<% if item.is_sale_status == true %>
-						<% if item.genre.is_status == true %> <!--商品の有効なものだけを表示させる-->
 							<div class="item-image">
 								<%= link_to users_item_path(item), class: "a_a" do %>
 									<%= attachment_image_tag(item, :picture, :fill, 200, 200) %><br>
@@ -18,8 +16,6 @@
 									</div>
 								<% end %>
 							</div>
-						<% end %>
-						<% end %>
 					<% end %>
 				</div>
 				<%= paginate @items %>
