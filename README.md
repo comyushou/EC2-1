@@ -7,7 +7,7 @@
 ### 使い方
 ===================
 
-_インストール方法_
+_インストール方法_<br>
    $ git clone<br>
    $ bundle install<br>
    $ rails db:migrate<br>
