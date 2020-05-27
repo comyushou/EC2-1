@@ -7,8 +7,10 @@
 		<h4>支払い方法</h4>
 			<p>
 				<label class="pay-info">
+
 					<%= f.radio_button :is_payment_method, :クレジットカード, checked: "checked" %><span class="text-box">クレジットカード</span>
 				</label>
+
 			</p>
 			<p>
 				<label class="pay-info"><%= f.radio_button :is_payment_method, :銀行振り込み %><span class="text-box">銀行振り込み</span></label>
@@ -34,6 +36,7 @@
 
 				<%= radio_button_tag("select_button", "new_user_address") %><span class="text-box">新しいお届け先</span></label>
 				<%= f.fields_for(@new_address) do |address| %>
+
 					<p class="user-info">郵便番号(ハイフンなし)
 						<%= address.text_field :postal_code, size: "25x5", class: "form-one" %>
 					</p>
@@ -43,6 +46,7 @@
 					<p class="user-info">宛名
 						<%= address.text_field :name, size: "25x5", class: "form-two" %>
 					</p>
+
 				<% end %>
 				<%= f.submit "確認画面へ進む", class: "btn btn-primary pay-btn" %>
 	<% end %>

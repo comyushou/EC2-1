@@ -1,7 +1,7 @@
 
 <div class="container admin-container">
 
-  <h4 style ="margin-top:100px;margin-left:100px;"><span style="background-color:#ffcc99">　商品一覧　</span></h4>
+  <h4 style ="margin-top:100px;margin-left:100px;"><span style="background-color:#ffcc99"> 商品一覧 </span></h4>
 
     <%= link_to(new_admins_item_path, class: "plus_link") do %>
       <div class ="itemnew">
@@ -10,6 +10,7 @@
 　　 <% end %>
 
   <center>
+
   <div class="row">
 
     <div class ="itemtable">
@@ -42,7 +43,8 @@
   <%= paginate @items %>
 
   </div>
+
   </center>
-  
+
 </div>
 

@@ -4,7 +4,7 @@
 
 
   <%= form_for(@genre, url:admins_genre_path(@genre)) do |f| %>
-    ジャンル　
+    ジャンル
     <span style="margin-bottom: 5px;margin-right:3px; border: 1px solid #000000; padding:3px; ">
     <%= @genre.name %>　　　　</span>
 	<label><%= f.radio_button :is_status, "true" %>有効</label>

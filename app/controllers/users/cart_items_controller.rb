@@ -62,7 +62,9 @@ class Users::CartItemsController < ApplicationController
 		current_user.cart_items.each do |cart_item|
 			@cart_total.push(cart_item.item.price.to_i * cart_item.unit)
 		end	
+
 		@total = @cart_total.sum  #sumは配列のそれぞれの要素を足し合わせる
+
 	end
 
 		
