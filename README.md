@@ -8,16 +8,16 @@
 ===================
 
 _インストール方法_
-   $ git clone
-   $ bundle install
-   $ rails db:migrate
-   $ rails db:seed
+   $ git clone<br>
+   $ bundle install<br>
+   $ rails db:migrate<br>
+   $ rails db:seed<br>
    $ rails s -b 0.0.0.0
 
 ### 管理者ページログイン
 ====================
 
-   Email: admin@admin.com
+   Email: admin@admin.com<br>
    Password: adminadmin
 
 ### 開発環境
