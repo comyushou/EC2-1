@@ -1,40 +1,40 @@
-<div class="container admin-edit-container">
+<div class="container admin-container">
 
   <div class="row">
-    <h4 style ="margin-bottom:100px;"><span style="background-color:#ffcc99" >　商品編集　</span></h4>
+    <h4 style ="margin-top:100px;margin-left:80px;margin-bottom:100px;"><span style="background-color:#ffcc99" >　商品編集　</span></h4>
   </div>
 
-    <div class="row">
-      <div class="col-xs-4">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= attachment_image_tag @item, :picture,:fill,250,200,format:'jpg'%>
 
-        <%= attachment_image_tag @item, :picture,:fill,300,200,format:'jpg'%>
-
-        <%= form_for(@item,url:admins_item_path(@item)) do |f| %>
-
-        <%= f.attachment_field :picture %>
-
-      </div>
-
-      <div class="col-xs-4">
-
-        商品名 <%= f.text_field :name %><br>
-
-        商品説明<%= f.text_area :description %><br>
-
-        ジャンル<%= f.collection_select :genre_id,Genre.all,:id,:name %><br>
-
-        税抜価格<%= f.text_field :price %>円<br>
-
-        販売ステータス<%= f.select :is_sale_status,[["販売中","true"],["売切れ","false"]] %>
-
-      </div>
+      <%= form_for(@item,url:admins_item_path(@item)) do |f| %>
+      <%= f.attachment_field :picture %>
     </div>
 
-    <div class="row">
-      <div class="col-xs-4  pull-right">
-        <p><%= f.submit "変更を保存",class:"btn btn-warning btn-lg" %></p>
-      </div>
-           <% end %>
+    <div class="col-xs-3" style="margin-left:30px;">
+      <p>商品名</p>
+      <p style="margin-bottom:110px;">商品説明</p>
+      <p>ジャンル</p>
+      <p>税込価格</p>
+      <p>販売ステータス</p>
     </div>
+
+    <div class="col-xs-3">
+    <p><%= f.text_field :name %></p>
+    <p><%= f.text_area :description %></p>
+    <p><%= f.collection_select :genre_id,Genre.all,:id,:name %></p>
+    <p><%= f.text_field :price %>円</p>
+    <p><%= f.select :is_sale_status,[["販売中","true"],["売切れ","false"]] %></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-xs-2  pull-right">
+      <p><%= f.submit "変更を保存",class:"btn btn-warning btn-lg" %></p>
+    </div>
+          <% end %>
+  </div>
 
 </div>

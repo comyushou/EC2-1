@@ -18,7 +18,7 @@
           <% end %>
         </nav>
         <nav>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" style="margin-top:5px;">
             <% if user_signed_in? %>
               <% if current_user %>
               <li class="user-name">ようこそ、<%= current_user.family_name %><%= current_user.first_name %>さん！</li>
